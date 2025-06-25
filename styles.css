@@ -1055,12 +1055,12 @@ section, .device-mockup {
   background: none !important;
 }
 
-/* Minimal Flag-Only Language Selector - Improved Alignment */
+/* Minimal Flag-Only Language Selector */
 .lang-switcher {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 0;
+  margin-left: 1.5rem;
 }
 .lang-btn {
   background: none;
@@ -1074,7 +1074,6 @@ section, .device-mockup {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1010;
 }
 .lang-btn:hover, .lang-btn:focus {
   background: rgba(0,0,0,0.06);
@@ -1082,8 +1081,8 @@ section, .device-mockup {
 .lang-dropdown {
   display: none;
   position: absolute;
-  right: 0;
-  top: 110%;
+  right: -0.5rem;
+  top: 2.5rem;
   min-width: 60px;
   z-index: 1001;
   border-radius: 18px;
@@ -1096,7 +1095,6 @@ section, .device-mockup {
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
-  pointer-events: auto;
 }
 .lang-dropdown.show {
   display: flex;
@@ -1127,7 +1125,7 @@ section, .device-mockup {
 }
 @media (max-width: 768px) {
   .lang-dropdown {
-    right: 0;
+    right: -0.5rem;
     left: auto;
     min-width: 48px;
   }
