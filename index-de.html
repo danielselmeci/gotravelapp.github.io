@@ -1,0 +1,255 @@
+<!--
+To support multiple languages, create:
+- index.html (English)
+- index-es.html (Spanish)
+- index-de.html (German)
+- index-hu.html (Hungarian)
+Translate all visible text in each file.
+-->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTravelApp – Dein Reisebegleiter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <a href="index-de.html" class="logo">
+                <i class="fas fa-plane"></i>
+                Go TravelApp
+            </a>
+            <div class="nav-links">
+                <a href="#features">Funktionen</a>
+                <a href="#about">Über uns</a>
+                <a href="support-de.html">Support</a>
+                <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="download-btn">Vorbestellen</a>
+            </div>
+            <!-- Minimal Flag-Only Language Selector -->
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn" aria-label="Sprache wechseln">
+                    <span id="currentFlag">🇩🇪</span>
+                </button>
+                <div class="lang-dropdown glass" id="langDropdown">
+                    <a href="index.html" class="lang-flag" data-lang="en">🇬🇧</a>
+                    <a href="index-es.html" class="lang-flag" data-lang="es">🇪🇸</a>
+                    <a href="index-de.html" class="lang-flag" data-lang="de">🇩🇪</a>
+                    <a href="index-hu.html" class="lang-flag" data-lang="hu">🇭🇺</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Deine Reisedokumente,<br>alles an einem Ort</h1>
+            <p>Behalte deinen Reisepass, dein Visum und alle Reisedokumente organisiert und sicher mit Go TravelApp.</p>
+            <div style="height: 2.2rem;"></div>
+            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                Im App Store vorbestellen
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Verfügbar ab 15. September 2025</div>
+        </div>
+        <div class="hero-image">
+            <div class="device-mockup">
+                <img src="https://gotravelapp.com/app-preview.png" alt="Go TravelApp Vorschau" class="app-preview">
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="section-container">
+            <h2>Für Reisende entwickelt</h2>
+            <p class="section-subtitle">Alles, was du brauchst, an einem Ort</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-passport"></i>
+                    <h3>Dokumentenverwaltung</h3>
+                    <p>Behalte Reisepässe, Visa und wichtige Reisedokumente im Blick – mit sicherer Speicherung und Erinnerungen an Ablaufdaten.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-suitcase"></i>
+                    <h3>Reiseplanung</h3>
+                    <p>Organisiere deine Reisen mit detaillierten Reiseplänen, Packlisten und Checklisten.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bell"></i>
+                    <h3>Intelligente Benachrichtigungen</h3>
+                    <p>Erhalte rechtzeitig Erinnerungen für Dokumentenerneuerungen, Reisevorbereitungen und wichtige Updates.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-globe"></i>
+                    <h3>Weltweite Unterstützung</h3>
+                    <p>Greife auf Informationen zu Ländern weltweit zu, inklusive Visabestimmungen und Reisehinweisen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="section-container centered-section">
+            <h2>Warum Go TravelApp?</h2>
+            <p class="section-subtitle">Darum solltest du uns wählen</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-lock"></i>
+                    <h3>Datenschutz an erster Stelle</h3>
+                    <p>Deine Reisedaten sind verschlüsselt und werden niemals weitergegeben. Du hast immer die Kontrolle.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Sofortiger Zugriff</h3>
+                    <p>Alle deine Dokumente, Reisen und Erinnerungen – sofort griffbereit, jederzeit und überall.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-magic"></i>
+                    <h3>Müheloses Erlebnis</h3>
+                    <p>Nach Apples Best-Practice-UI-Prinzipien gestaltet – für eine nahtlose, schöne Nutzung.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Weltweit einsatzbereit</h3>
+                    <p>Visaprüfung, Länderinfos und Reisetools für jedes Ziel deiner Wahl.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="section-container centered-section">
+            <h2>So funktioniert's</h2>
+            <p class="section-subtitle">Starte in drei einfachen Schritten</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-download"></i>
+                    <h3>1. Vorbestellen & Installieren</h3>
+                    <p>Bestelle Go TravelApp im App Store vor. Du wirst benachrichtigt, sobald die App verfügbar ist.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>2. Profil einrichten</h3>
+                    <p>Füge deine Reisedokumente hinzu, richte dein Profil ein und passe deine Einstellungen sicher an.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>3. Entspannt reisen</h3>
+                    <p>Plane Reisen, verwalte Dokumente und erhalte smarte Erinnerungen – alles an einem Ort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-content">
+                <h2>Über uns</h2>
+                <p class="section-subtitle">Mit Leidenschaft entwickelt in Rogers, AR</p>
+                <div class="about-text">
+                    <p>Go TravelApp entstand aus einer einfachen Idee: Reiseplanung einfacher und organisierter zu machen. Wir kennen die Herausforderungen beim Verwalten von Reisedokumenten, beim Planen von Reisen und beim Einhalten wichtiger Fristen.</p>
+                    <p>Unsere Mission ist es, Reisenden eine umfassende Lösung zu bieten, die ihre Reise von der Planung bis zur Umsetzung vereinfacht.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content glass">
+            <h2>Bereit für stressfreies Reisen?</h2>
+            <p>Bestelle Go TravelApp jetzt vor und sei einer der Ersten, die stressfrei ihre Reisen planen.</p>
+            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                <i class="fab fa-apple"></i>
+                Im App Store vorbestellen
+            </a>
+            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Verfügbar ab 15. September 2025</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Go TravelApp</h4>
+                <p>Mit Leidenschaft entwickelt in Rogers, AR</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/go.travelapp"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:info@gotravelapp.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <a href="support-de.html">Support</a>
+                <a href="privacy-de.html">Datenschutz</a>
+                <a href="terms-de.html">Nutzungsbedingungen</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Go TravelApp. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Auto-detect language and redirect on first visit ---
+        (function() {
+            if (window.localStorage.getItem('gotravelapp-lang-redirected')) return;
+            var lang = navigator.language || navigator.userLanguage;
+            lang = lang.toLowerCase();
+            var redirect = null;
+            if (lang.startsWith('es')) redirect = 'index-es.html';
+            else if (lang.startsWith('de')) redirect = 'index-de.html';
+            else if (lang.startsWith('hu')) redirect = 'index-hu.html';
+            if (redirect && window.location.pathname.indexOf(redirect) === -1 && window.location.pathname.indexOf('index.html') !== -1) {
+                window.localStorage.setItem('gotravelapp-lang-redirected', '1');
+                window.location.replace(redirect);
+            }
+        })();
+
+        // Minimal flag-only language selector logic
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentFlag = document.getElementById('currentFlag');
+        const langMap = { en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', hu: '🇭🇺' };
+        let current = 'de';
+        if (window.location.pathname.endsWith('index.html')) current = 'en';
+        else if (window.location.pathname.endsWith('index-es.html')) current = 'es';
+        else if (window.location.pathname.endsWith('index-de.html')) current = 'de';
+        else if (window.location.pathname.endsWith('index-hu.html')) current = 'hu';
+        currentFlag.textContent = langMap[current];
+        // Hide current flag from dropdown
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            if (flag.dataset.lang === current) flag.style.display = 'none';
+            else flag.style.display = 'flex';
+        });
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', function(e) {
+            langDropdown.classList.remove('show');
+        });
+    </script>
+</body>
+</html> 
