@@ -1,3 +1,11 @@
+<!--
+To support multiple languages, create:
+- index.html (English)
+- index-es.html (Spanish)
+- index-de.html (German)
+- index-hu.html (Hungarian)
+Translate all visible text in each file.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +28,12 @@
                 <a href="support.html">Support</a>
                 <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="download-btn">Pre-Order</a>
             </div>
+            <div class="lang-switcher">
+                <a href="index.html" title="English">🇺🇸 EN</a> |
+                <a href="index-es.html" title="Español">🇪🇸 ES</a> |
+                <a href="index-de.html" title="Deutsch">🇩🇪 DE</a> |
+                <a href="index-hu.html" title="Magyar">🇭🇺 HU</a>
+            </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -39,7 +53,7 @@
         </div>
         <div class="hero-image">
             <div class="device-mockup">
-                <img src="https://gotravelapp.com/app-preview.png" alt="Go TravelApp Preview" class="app-preview">
+                <img src="https://gotravelapp.github.io/app-preview.png" alt="Go TravelApp Preview" class="app-preview">
             </div>
         </div>
     </header>
@@ -191,6 +205,21 @@
                 });
             });
         });
+
+        // --- Auto-detect language and redirect on first visit ---
+        (function() {
+            if (window.localStorage.getItem('gotravelapp-lang-redirected')) return;
+            var lang = navigator.language || navigator.userLanguage;
+            lang = lang.toLowerCase();
+            var redirect = null;
+            if (lang.startsWith('es')) redirect = 'index-es.html';
+            else if (lang.startsWith('de')) redirect = 'index-de.html';
+            else if (lang.startsWith('hu')) redirect = 'index-hu.html';
+            if (redirect && window.location.pathname.indexOf(redirect) === -1 && window.location.pathname.indexOf('index.html') !== -1) {
+                window.localStorage.setItem('gotravelapp-lang-redirected', '1');
+                window.location.replace(redirect);
+            }
+        })();
     </script>
 </body>
 </html> 
