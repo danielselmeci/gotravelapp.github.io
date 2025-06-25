@@ -1060,7 +1060,7 @@ section, .device-mockup {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 0.5rem;
+  margin-left: 0.0rem;
 }
 .lang-btn {
   background: none;
