@@ -28,16 +28,16 @@ Translate all visible text in each file.
                 <a href="support.html">Support</a>
                 <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="download-btn">Pre-Order</a>
             </div>
-            <!-- Language Selector Dropdown -->
+            <!-- Minimal Flag-Only Language Selector -->
             <div class="lang-switcher">
                 <button class="lang-btn" id="langBtn" aria-label="Change language">
-                    <i class="fas fa-globe"></i>
+                    <span id="currentFlag">🇬🇧</span>
                 </button>
                 <div class="lang-dropdown glass" id="langDropdown">
-                    <a href="index.html" class="lang-option" data-lang="en">🇬🇧 EN <span>English</span></a>
-                    <a href="index-es.html" class="lang-option" data-lang="es">🇪🇸 ES <span>Español</span></a>
-                    <a href="index-de.html" class="lang-option" data-lang="de">🇩🇪 DE <span>Deutsch</span></a>
-                    <a href="index-hu.html" class="lang-option" data-lang="hu">🇭🇺 HU <span>Magyar</span></a>
+                    <a href="index.html" class="lang-flag" data-lang="en">🇬🇧</a>
+                    <a href="index-es.html" class="lang-flag" data-lang="es">🇪🇸</a>
+                    <a href="index-de.html" class="lang-flag" data-lang="de">🇩🇪</a>
+                    <a href="index-hu.html" class="lang-flag" data-lang="hu">🇭🇺</a>
                 </div>
             </div>
             <button class="mobile-menu-btn">
@@ -227,27 +227,27 @@ Translate all visible text in each file.
             }
         })();
 
-        // Language selector dropdown logic
+        // Minimal flag-only language selector logic
         const langBtn = document.getElementById('langBtn');
         const langDropdown = document.getElementById('langDropdown');
+        const currentFlag = document.getElementById('currentFlag');
+        const langMap = { en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', hu: '🇭🇺' };
+        let current = 'en';
+        if (window.location.pathname.endsWith('index-es.html')) current = 'es';
+        else if (window.location.pathname.endsWith('index-de.html')) current = 'de';
+        else if (window.location.pathname.endsWith('index-hu.html')) current = 'hu';
+        currentFlag.textContent = langMap[current];
+        // Hide current flag from dropdown
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            if (flag.dataset.lang === current) flag.style.display = 'none';
+            else flag.style.display = 'flex';
+        });
         langBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             langDropdown.classList.toggle('show');
         });
         document.addEventListener('click', function(e) {
             langDropdown.classList.remove('show');
-        });
-        // Highlight current language
-        const current = window.location.pathname;
-        document.querySelectorAll('.lang-option').forEach(opt => {
-            if (
-                (current.endsWith('index.html') && opt.dataset.lang === 'en') ||
-                (current.endsWith('index-es.html') && opt.dataset.lang === 'es') ||
-                (current.endsWith('index-de.html') && opt.dataset.lang === 'de') ||
-                (current.endsWith('index-hu.html') && opt.dataset.lang === 'hu')
-            ) {
-                opt.classList.add('active');
-            }
         });
     </script>
 </body>
