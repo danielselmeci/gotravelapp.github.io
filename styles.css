@@ -1055,7 +1055,7 @@ section, .device-mockup {
   background: none !important;
 }
 
-/* Language Selector Dropdown */
+/* Minimal Flag-Only Language Selector */
 .lang-switcher {
   position: relative;
   display: flex;
@@ -1065,12 +1065,15 @@ section, .device-mockup {
 .lang-btn {
   background: none;
   border: none;
-  font-size: 1.35rem;
+  font-size: 1.7rem;
   color: var(--text-color);
   cursor: pointer;
-  padding: 0.3rem 0.6rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 50%;
   transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .lang-btn:hover, .lang-btn:focus {
   background: rgba(0,0,0,0.06);
@@ -1079,58 +1082,59 @@ section, .device-mockup {
   display: none;
   position: absolute;
   right: 0;
-  top: 2.3rem;
-  min-width: 180px;
+  top: 2.5rem;
+  min-width: 60px;
   z-index: 1001;
-  border-radius: 20px;
+  border-radius: 18px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-  padding: 0.5rem 0;
-  background: rgba(255,255,255,0.85);
+  padding: 0.4rem 0.2rem;
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1.5px solid rgba(255,255,255,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
 }
 .lang-dropdown.show {
-  display: block;
-  animation: fadeInUp 0.25s cubic-bezier(.23,1.01,.32,1);
+  display: flex;
+  animation: fadeInUp 0.22s cubic-bezier(.23,1.01,.32,1);
 }
-.lang-option {
+.lang-flag {
+  font-size: 1.7rem;
+  padding: 0.25em 0.7em;
+  border-radius: 12px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  transition: background 0.18s, transform 0.18s;
   display: flex;
   align-items: center;
-  gap: 0.7em;
-  padding: 0.7em 1.2em;
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.08rem;
-  border: none;
-  background: none;
-  transition: background 0.18s, color 0.18s;
+  justify-content: center;
 }
-.lang-option span {
-  font-size: 0.98em;
-  color: #888;
-}
-.lang-option:hover, .lang-option.active {
+.lang-flag:hover {
   background: var(--primary-color);
   color: #fff;
-}
-.lang-option.active span {
-  color: #fff;
+  transform: scale(1.12);
 }
 @media (prefers-color-scheme: dark) {
   .lang-dropdown {
-    background: rgba(28,28,30,0.95);
+    background: rgba(28,28,30,0.98);
     border: 1.5px solid rgba(255,255,255,0.13);
-  }
-  .lang-option span {
-    color: #aaa;
   }
 }
 @media (max-width: 768px) {
   .lang-dropdown {
     right: 0;
     left: auto;
-    min-width: 140px;
+    min-width: 48px;
   }
-} 
+  .lang-flag {
+    font-size: 1.45rem;
+    padding: 0.18em 0.5em;
+  }
+}
+
+/* Remove previous language option styles */
+.lang-option, .lang-option.active { display: none !important; } 
