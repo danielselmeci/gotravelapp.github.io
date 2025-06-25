@@ -1,0 +1,250 @@
+<!--
+Ez a Go TravelApp magyar nyelvű verziója.
+-->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTravelApp - Az utazási társad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <a href="index-hu.html" class="logo">
+                <i class="fas fa-plane"></i>
+                Go TravelApp
+            </a>
+            <div class="nav-links">
+                <a href="#features">Funkciók</a>
+                <a href="#about">Rólunk</a>
+                <a href="support-hu.html">Támogatás</a>
+                <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="download-btn">Előrendelés</a>
+            </div>
+            <!-- Minimal Flag-Only Language Selector -->
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn" aria-label="Nyelv váltása">
+                    <span id="currentFlag">🇭🇺</span>
+                </button>
+                <div class="lang-dropdown glass" id="langDropdown">
+                    <a href="index.html" class="lang-flag" data-lang="en">🇬🇧</a>
+                    <a href="index-es.html" class="lang-flag" data-lang="es">🇪🇸</a>
+                    <a href="index-de.html" class="lang-flag" data-lang="de">🇩🇪</a>
+                    <a href="index-hu.html" class="lang-flag" data-lang="hu">🇭🇺</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Utazási dokumentumaid,<br>egy helyen</h1>
+            <p>Tartsd útleveled, vízumod és utazási dokumentumaid rendezve és biztonságban a Go TravelApp segítségével.</p>
+            <div style="height: 2.2rem;"></div>
+            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                Előrendelés az App Store-ban
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Érkezik: 2025. szeptember 15.</div>
+        </div>
+        <div class="hero-image">
+            <div class="device-mockup">
+                <img src="https://gotravelapp.github.io/app-preview.png" alt="Go TravelApp Előnézet" class="app-preview">
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="section-container">
+            <h2>Utazóknak tervezve</h2>
+            <p class="section-subtitle">Minden, amire szükséged lehet, egy helyen</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-passport"></i>
+                    <h3>Dokumentumkezelés</h3>
+                    <p>Kövesd nyomon útleveleidet, vízumaidat és fontos utazási dokumentumaidat biztonságos tárolással és lejárati emlékeztetőkkel.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-suitcase"></i>
+                    <h3>Utazástervezés</h3>
+                    <p>Szervezd meg utazásaid részletes útitervvel, csomaglistával és ellenőrzőlistákkal.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bell"></i>
+                    <h3>Okos értesítések</h3>
+                    <p>Időben kapsz emlékeztetőt a dokumentumok megújításáról, utazás előtti teendőkről és fontos frissítésekről.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-globe"></i>
+                    <h3>Globális támogatás</h3>
+                    <p>Hozzáférés országok információihoz világszerte, beleértve a vízumkövetelményeket és utazási tanácsokat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="section-container centered-section">
+            <h2>Miért a Go TravelApp?</h2>
+            <p class="section-subtitle">Néhány ok, amiért érdemes minket választani</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-lock"></i>
+                    <h3>Adatvédelem elsőként</h3>
+                    <p>Az utazási adataid titkosítva vannak, és soha nem osztjuk meg őket. Mindig te irányítasz.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Azonnali hozzáférés</h3>
+                    <p>Minden dokumentumod, utazásod és emlékeztetőd azonnal elérhető – bármikor, bárhol.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-magic"></i>
+                    <h3>Könnyed élmény</h3>
+                    <p>Az Apple legjobb UI elvei alapján tervezve a zökkenőmentes, gyönyörű használatért.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Világszintű felkészültség</h3>
+                    <p>Vízumellenőrzés, országinformációk és utazási eszközök minden úti célhoz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="section-container centered-section">
+            <h2>Hogyan működik?</h2>
+            <p class="section-subtitle">Kezdd el három egyszerű lépésben</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-download"></i>
+                    <h3>1. Előrendelés & Telepítés</h3>
+                    <p>Rendeld elő a Go TravelAppot az App Store-ban. Értesítést kapsz, amint elérhető lesz.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>2. Profilod beállítása</h3>
+                    <p>Add hozzá utazási dokumentumaidat, állítsd be profilod, és személyre szabhatod a beállításokat biztonságosan.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>3. Gondtalan utazás</h3>
+                    <p>Tervezd meg utazásaid, kövesd nyomon dokumentumaidat, és kapj okos emlékeztetőket – mindezt egy helyen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-content">
+                <h2>Rólunk</h2>
+                <p class="section-subtitle">Szenvedéllyel készítve Rogers, AR-ben</p>
+                <div class="about-text">
+                    <p>A Go TravelApp egy egyszerű ötletből született: könnyebbé és szervezettebbé tenni az utazástervezést. Ismerjük az utazási dokumentumok kezelésének, az utazások szervezésének és a határidők betartásának kihívásait.</p>
+                    <p>Küldetésünk, hogy átfogó megoldást nyújtsunk az utazóknak, amely leegyszerűsíti az utazás minden lépését a tervezéstől a megvalósításig.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content glass">
+            <h2>Készen állsz az egyszerűbb utazásra?</h2>
+            <p>Rendeld elő a Go TravelAppot még ma, és légy az elsők között, akik stresszmentesen tervezhetik utazásaikat.</p>
+            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                <i class="fab fa-apple"></i>
+                Előrendelés az App Store-ban
+            </a>
+            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Érkezik: 2025. szeptember 15.</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Go TravelApp</h4>
+                <p>Szenvedéllyel készítve Rogers, AR-ben</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kapcsolat</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/go.travelapp"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:info@gotravelapp.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Linkek</h4>
+                <a href="support-hu.html">Támogatás</a>
+                <a href="privacy-hu.html">Adatvédelmi irányelvek</a>
+                <a href="terms-hu.html">Felhasználási feltételek</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Go TravelApp. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Auto-detect language and redirect on first visit ---
+        (function() {
+            if (window.localStorage.getItem('gotravelapp-lang-redirected')) return;
+            var lang = navigator.language || navigator.userLanguage;
+            lang = lang.toLowerCase();
+            var redirect = null;
+            if (lang.startsWith('es')) redirect = 'index-es.html';
+            else if (lang.startsWith('de')) redirect = 'index-de.html';
+            else if (lang.startsWith('hu')) redirect = 'index-hu.html';
+            if (redirect && window.location.pathname.indexOf(redirect) === -1 && window.location.pathname.indexOf('index.html') !== -1) {
+                window.localStorage.setItem('gotravelapp-lang-redirected', '1');
+                window.location.replace(redirect);
+            }
+        })();
+
+        // Minimal flag-only language selector logic
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentFlag = document.getElementById('currentFlag');
+        const langMap = { en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', hu: '🇭🇺' };
+        let current = 'hu';
+        if (window.location.pathname.endsWith('index.html')) current = 'en';
+        else if (window.location.pathname.endsWith('index-es.html')) current = 'es';
+        else if (window.location.pathname.endsWith('index-de.html')) current = 'de';
+        else if (window.location.pathname.endsWith('index-hu.html')) current = 'hu';
+        currentFlag.textContent = langMap[current];
+        // Hide current flag from dropdown
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            if (flag.dataset.lang === current) flag.style.display = 'none';
+            else flag.style.display = 'flex';
+        });
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', function(e) {
+            langDropdown.classList.remove('show');
+        });
+    </script>
+</body>
+</html> 
