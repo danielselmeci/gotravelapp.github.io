@@ -253,7 +253,7 @@ body {
 /* About Section */
 .about {
     padding: 6rem 2rem;
-    background: white;
+    background: none !important;
 }
 
 .about-content {
@@ -947,4 +947,11 @@ h1, h2, h3, h4 {
     background: #33343A;
     border-radius: 8px;
   }
+}
+
+/* Section container for consistent centering and width */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 } 
