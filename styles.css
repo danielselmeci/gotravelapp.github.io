@@ -826,4 +826,125 @@ footer {
 h1, h2, h3, h4 {
     font-weight: 700;
     letter-spacing: -0.01em;
+}
+
+/* --- Dark Mode Support --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #0A84FF;
+    --secondary-color: #5E5CE6;
+    --text-color: #F5F5F7;
+    --light-gray: #18181A;
+    --border-color: #33343A;
+    --glass-bg: rgba(28, 28, 30, 0.7);
+    --glass-bg-strong: rgba(28, 28, 30, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-strong: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    --glass-shadow-strong: 0 12px 48px rgba(0,0,0,0.55);
+    --hero-gradient: linear-gradient(135deg, #232336 0%, #18181A 100%);
+    --cta-gradient: linear-gradient(135deg, #232336 0%, #18181A 100%);
+  }
+  body {
+    background: var(--light-gray);
+    color: var(--text-color);
+  }
+  .glass {
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
+    box-shadow: var(--glass-shadow-strong);
+  }
+  .hero {
+    background: var(--hero-gradient);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  }
+  .cta-section {
+    background: var(--cta-gradient);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  }
+  .cta-content {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.55);
+  }
+  .feature-card, .stat-card, .testimonial-card, .faq-section, .contact-section, .resources-section {
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  }
+  .feature-card:hover, .stat-card:hover, .testimonial-card:hover, .faq-section:hover, .contact-section:hover, .resources-section:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.65);
+  }
+  .cta-button, .download-btn {
+    background: var(--primary-color);
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(10,132,255,0.18);
+  }
+  .cta-button:hover, .download-btn:hover {
+    background: #0060df;
+    box-shadow: 0 4px 16px rgba(10,132,255,0.25);
+  }
+  .secondary-button {
+    color: var(--primary-color);
+  }
+  .navbar, nav {
+    background: var(--glass-bg-strong);
+    border-bottom: 1.5px solid var(--glass-border-strong);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.45);
+  }
+  .nav-links a {
+    color: var(--text-color);
+  }
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+  .logo {
+    color: var(--text-color);
+  }
+  .footer-content, footer {
+    background: #18181A;
+    color: #F5F5F7;
+  }
+  .footer-section a {
+    color: #aaa;
+  }
+  .footer-section a:hover {
+    color: #fff;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #aaa;
+  }
+  .device-mockup {
+    background: #111;
+    border: 4px solid #232336;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.65);
+  }
+  .device-mockup:before {
+    background: #333;
+    opacity: 0.5;
+  }
+  .device-mockup img {
+    background: #222;
+    border-radius: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+  h1, h2, h3, h4 {
+    color: var(--text-color);
+  }
+  .section-subtitle, .about-text p, .feature-card p, .stat-label, .testimonial-author span, .faq-answer p, .contact-card p, .resource-card p {
+    color: #b0b0b8;
+  }
+  .stat-number {
+    color: var(--primary-color);
+  }
+  .testimonial-rating {
+    color: #FFD700;
+  }
+  /* Scrollbar for dark mode */
+  ::-webkit-scrollbar {
+    background: #232336;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #33343A;
+    border-radius: 8px;
+  }
 } 
