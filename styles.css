@@ -8,6 +8,11 @@
     --glass-bg: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(255, 255, 255, 0.2);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --glass-bg-strong: rgba(255, 255, 255, 0.6);
+    --glass-border-strong: rgba(255, 255, 255, 0.4);
+    --glass-shadow-strong: 0 12px 48px rgba(0, 0, 0, 0.15);
+    --hero-gradient: linear-gradient(135deg, #e0e7ff 0%, #f5f7fa 100%);
+    --cta-gradient: linear-gradient(135deg, #d1eaff 0%, #e0e7ff 100%);
 }
 
 * {
@@ -21,15 +26,15 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background: var(--light-gray);
+    font-size: 1.05rem;
+    font-weight: 400;
 }
 
 /* Glass Effect */
 .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
+    box-shadow: var(--glass-shadow-strong);
 }
 
 /* Navigation */
@@ -104,7 +109,10 @@ body {
 /* Hero Section */
 .hero {
     padding: 8rem 2rem 4rem;
-    background: linear-gradient(135deg, #F5F7FA 0%, #E4E8F0 100%);
+    background: var(--hero-gradient);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border-radius: 32px;
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -146,16 +154,20 @@ body {
     gap: 0.5rem;
     background: var(--primary-color);
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 30px;
+    padding: 1rem 2.2rem;
+    border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
-    transition: transform 0.3s, background 0.3s;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,122,255,0.10);
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    background: #0066CC;
+    background: #005bb5;
+    box-shadow: 0 4px 16px rgba(0,122,255,0.15);
+    transform: translateY(-2px) scale(1.03);
 }
 
 .secondary-button {
@@ -213,13 +225,17 @@ body {
 
 .feature-card {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 28px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transform: translateY(-4px) scale(1.01);
 }
 
 .feature-card i {
@@ -267,8 +283,17 @@ body {
 
 .stat-card {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 28px;
     text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.stat-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transform: translateY(-4px) scale(1.01);
 }
 
 .stat-number {
@@ -300,7 +325,16 @@ body {
 
 .testimonial-card {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transform: translateY(-4px) scale(1.01);
 }
 
 .testimonial-rating {
@@ -335,7 +369,9 @@ body {
 /* CTA Section */
 .cta-section {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #F5F7FA 0%, #E4E8F0 100%);
+    background: var(--cta-gradient);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
 }
 
 .cta-content {
@@ -344,6 +380,7 @@ body {
     text-align: center;
     padding: 4rem 2rem;
     border-radius: 30px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
 .cta-content h2 {
@@ -536,7 +573,11 @@ footer {
 /* FAQ Section */
 .faq-section {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .faq-section h2 {
@@ -601,7 +642,10 @@ footer {
 /* Contact Section */
 .contact-section {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
     height: fit-content;
 }
 
@@ -668,7 +712,10 @@ footer {
 /* Resources Section */
 .resources-section {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: var(--glass-bg-strong);
+    border: 1.5px solid var(--glass-border-strong);
 }
 
 .resources-section h2 {
@@ -733,4 +780,50 @@ footer {
     .resources-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Device mockup for app preview */
+.device-mockup {
+    display: inline-block;
+    background: #222;
+    border-radius: 40px;
+    padding: 1.2rem 0.7rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    border: 4px solid #fff;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+.device-mockup:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    opacity: 0.7;
+}
+.device-mockup img {
+    border-radius: 28px;
+    width: 100%;
+    display: block;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+/* Subtle fade-in animation for hero image */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-image img, .device-mockup {
+    animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) 0.2s both;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
 } 
