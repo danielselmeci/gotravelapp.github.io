@@ -31,8 +31,12 @@ module.exports = async (req, res) => {
 
     // Fetch the payment intent from Stripe
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId, {
-      expand: ['charges', 'refunds']
+      expand: ['charges.data.refunds']
     });
+    
+    console.log(`🔍 Retrieved payment intent: ${paymentIntent.id}`);
+    console.log(`   Status: ${paymentIntent.status}`);
+    console.log(`   Charges count: ${paymentIntent.charges ? paymentIntent.charges.data.length : 0}`);
 
     if (!paymentIntent) {
       return res.status(404).json({
@@ -41,37 +45,28 @@ module.exports = async (req, res) => {
       });
     }
 
-    console.log(`🔍 Payment Intent Debug:`);
-    console.log(`   ID: ${paymentIntent.id}`);
-    console.log(`   Status: ${paymentIntent.status}`);
-    console.log(`   Charges count: ${paymentIntent.charges && paymentIntent.charges.data ? paymentIntent.charges.data.length : 0}`);
-    console.log(`   Amount: ${paymentIntent.amount}`);
-
     if (paymentIntent.status !== 'succeeded') {
       return res.status(400).json({
         error: 'Invalid payment status',
-        message: `Payment status is '${paymentIntent.status}', only succeeded payments can be refunded`
+        message: 'Only succeeded payments can be refunded'
       });
     }
 
     // Check if there's a charge to refund
     if (!paymentIntent.charges || !paymentIntent.charges.data.length) {
       console.log(`❌ No charges found for payment ${paymentIntentId}`);
-      try {
-        console.log(`   Payment Intent keys:`, Object.keys(paymentIntent));
-        console.log(`   Payment Intent amount:`, paymentIntent.amount);
-        console.log(`   Payment Intent status:`, paymentIntent.status);
-      } catch (err) {
-        console.log(`   Error logging payment intent:`, err.message);
-      }
-      
+      console.log(`   Charges object:`, paymentIntent.charges);
       return res.status(400).json({
         error: 'No charge found',
-        message: 'No chargeable amount found for this payment. This might be a payment that was not completed or captured.'
+        message: 'No chargeable amount found for this payment'
       });
     }
 
     const charge = paymentIntent.charges.data[0];
+    console.log(`✅ Found charge: ${charge.id}`);
+    console.log(`   Amount: ${charge.amount}`);
+    console.log(`   Refunded: ${charge.refunded}`);
+    console.log(`   Amount refunded: ${charge.amount_refunded || 0}`);
 
     // Check if already fully refunded
     if (charge.refunded && charge.amount_refunded === charge.amount) {
