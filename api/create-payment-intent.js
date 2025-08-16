@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { amount, currency = 'usd', description = 'GoTravel App Support' } = req.body;
+    const { amount, currency = 'usd', description = 'GoTravel App Support', metadata = {} } = req.body;
 
     // Validate required fields
     if (!amount || amount < 50) { // Minimum $0.50
@@ -44,6 +44,7 @@ module.exports = async (req, res) => {
       description: description,
       payment_method_types: ['card'],
       metadata: {
+        ...metadata, // Include user metadata from iOS app
         source: 'gotravelapp_coffee_support',
         timestamp: new Date().toISOString()
       }
