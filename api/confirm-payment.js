@@ -58,35 +58,19 @@ module.exports = async (req, res) => {
     // We need to create a proper Stripe token from this data
     
     try {
-      // Apple Pay requires a different approach - we need to decode and process the payment data
-      console.log('🔄 Processing Apple Pay token for Stripe...');
+      // For Apple Pay, let's try using Stripe's Sources API which is designed for Apple Pay
+      console.log('🔄 Creating Stripe source from Apple Pay data...');
       
-      // Try to decode the Apple Pay payment data to understand its structure
-      let decodedPaymentData;
-      try {
-        const decodedString = Buffer.from(apple_pay_token, 'base64').toString('utf8');
-        decodedPaymentData = JSON.parse(decodedString);
-        console.log('🍎 Decoded Apple Pay structure:', {
-          hasData: !!decodedPaymentData.data,
-          hasSignature: !!decodedPaymentData.signature,
-          hasHeader: !!decodedPaymentData.header,
-          version: decodedPaymentData.version
-        });
-      } catch (decodeError) {
-        console.log('🔍 Could not decode Apple Pay token as JSON:', decodeError.message);
-      }
+      const source = await stripe.sources.create({
+        type: 'card',
+        token: apple_pay_token
+      });
       
-      // Since direct token creation isn't working, let's try a different approach
-      // Use the payment intent confirmation with Apple Pay payment method data
-      console.log('🔄 Confirming payment intent with Apple Pay data...');
+      console.log(`✅ Created Stripe source: ${source.id}`);
       
+      // Confirm payment intent with the source
       const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
-        payment_method_data: {
-          type: 'card',
-          card: {
-            token: apple_pay_token
-          }
-        }
+        source: source.id
       });
       
       console.log(`✅ Payment confirmed successfully: ${paymentIntent.status}`);
@@ -95,12 +79,12 @@ module.exports = async (req, res) => {
         client_secret: paymentIntent.client_secret,
         amount: paymentIntent.amount,
         currency: paymentIntent.currency,
-        method: 'payment_method_data'
+        method: 'stripe_source'
       });
       
-    } catch (paymentError) {
-      console.log('❌ Payment confirmation failed:', paymentError.message);
-      console.log('❌ Payment error details:', JSON.stringify(paymentError, null, 2));
+    } catch (sourceError) {
+      console.log('❌ Stripe source creation failed:', sourceError.message);
+      console.log('❌ Source error details:', JSON.stringify(sourceError, null, 2));
       
       // Approach 2: Try direct payment_method_data approach
       try {
@@ -132,7 +116,7 @@ module.exports = async (req, res) => {
         console.log('🔍 Apple Pay token length:', apple_pay_token.length);
         console.log('🔍 Apple Pay token preview:', apple_pay_token.substring(0, 100) + '...');
         
-        throw new Error(`All Apple Pay processing approaches failed. Primary: ${paymentError.message}, Fallback: ${directError.message}`);
+        throw new Error(`All Apple Pay processing approaches failed. Source: ${sourceError.message}, Direct: ${directError.message}`);
       }
     }
 
