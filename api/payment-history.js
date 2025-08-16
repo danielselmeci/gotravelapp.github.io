@@ -54,33 +54,52 @@ module.exports = async (req, res) => {
         return hasMetadata && isCompleted;
       })
       .map(pi => {
-        const refundStatus = getRefundStatus(pi);
-        const refundAmount = getRefundAmount(pi);
-        
-        console.log(`🔍 Payment ${pi.id}:`);
-        console.log(`   Charges: ${pi.charges?.data?.length || 0}`);
-        console.log(`   Refunds: ${pi.refunds?.data?.length || 0}`);
-        if (pi.charges?.data?.length > 0) {
-          const charge = pi.charges.data[0];
-          console.log(`   Charge refunded: ${charge.refunded}`);
-          console.log(`   Amount refunded: ${charge.amount_refunded || 0} / ${charge.amount}`);
+        try {
+          const refundStatus = getRefundStatus(pi);
+          const refundAmount = getRefundAmount(pi);
+          
+          console.log(`🔍 Payment ${pi.id}:`);
+          console.log(`   Charges: ${pi.charges && pi.charges.data ? pi.charges.data.length : 0}`);
+          console.log(`   Refunds: ${pi.refunds && pi.refunds.data ? pi.refunds.data.length : 0}`);
+          if (pi.charges && pi.charges.data && pi.charges.data.length > 0) {
+            const charge = pi.charges.data[0];
+            console.log(`   Charge refunded: ${charge.refunded || false}`);
+            console.log(`   Amount refunded: ${charge.amount_refunded || 0} / ${charge.amount || 0}`);
+          }
+          console.log(`   Calculated refund status: ${refundStatus}`);
+          console.log(`   Calculated refund amount: ${refundAmount}`);
+          
+          return {
+            id: pi.id,
+            paymentIntentId: pi.id,
+            amount: pi.amount / 100, // Convert from cents
+            currency: pi.currency,
+            description: pi.description || 'Support Payment',
+            status: mapStripeStatus(pi.status),
+            createdAt: new Date(pi.created * 1000).toISOString(),
+            refundStatus: refundStatus,
+            refundAmount: refundAmount,
+            refundReason: null, // Would come from your database
+            refundRequestedAt: null // Would come from your database
+          };
+        } catch (err) {
+          console.log(`❌ Error processing payment ${pi.id}:`, err.message);
+          
+          // Return a basic payment object if processing fails
+          return {
+            id: pi.id,
+            paymentIntentId: pi.id,
+            amount: pi.amount / 100, // Convert from cents
+            currency: pi.currency,
+            description: pi.description || 'Support Payment',
+            status: mapStripeStatus(pi.status),
+            createdAt: new Date(pi.created * 1000).toISOString(),
+            refundStatus: 'none',
+            refundAmount: null,
+            refundReason: null,
+            refundRequestedAt: null
+          };
         }
-        console.log(`   Calculated refund status: ${refundStatus}`);
-        console.log(`   Calculated refund amount: ${refundAmount}`);
-        
-        return {
-          id: pi.id,
-          paymentIntentId: pi.id,
-          amount: pi.amount / 100, // Convert from cents
-          currency: pi.currency,
-          description: pi.description || 'Support Payment',
-          status: mapStripeStatus(pi.status),
-          createdAt: new Date(pi.created * 1000).toISOString(),
-          refundStatus: refundStatus,
-          refundAmount: refundAmount,
-          refundReason: null, // Would come from your database
-          refundRequestedAt: null // Would come from your database
-        };
       })
       .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Most recent first
 
