@@ -36,15 +36,20 @@ module.exports = async (req, res) => {
 
     console.log(`📡 Retrieved ${paymentIntents.data.length} payment intents from Stripe`);
 
+    // Debug: Log first few payment intents to see metadata structure
+    if (paymentIntents.data.length > 0) {
+      console.log(`🔍 Sample payment metadata:`, JSON.stringify(paymentIntents.data[0].metadata, null, 2));
+    }
+
     // Filter and format payments for this user
-    // In a real app, you'd have user IDs in payment metadata
     const userPayments = paymentIntents.data
       .filter(pi => {
-        // For demo purposes, we'll return all successful "Coffee support" payments
-        // In production, you'd filter by user metadata
-        return pi.status === 'succeeded' && 
-               pi.description && 
-               pi.description.includes('Coffee support');
+        // Filter by user ID in metadata
+        const hasMetadata = pi.metadata && pi.metadata.userId === userId && pi.metadata.source === 'gotravelapp_coffee_support';
+        if (pi.metadata) {
+          console.log(`🔍 Payment ${pi.id}: userId=${pi.metadata.userId}, looking for=${userId}, match=${hasMetadata}`);
+        }
+        return hasMetadata;
       })
       .map(pi => ({
         id: pi.id,
