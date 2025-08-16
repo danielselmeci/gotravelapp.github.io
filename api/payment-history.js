@@ -44,12 +44,14 @@ module.exports = async (req, res) => {
     // Filter and format payments for this user
     const userPayments = paymentIntents.data
       .filter(pi => {
-        // Filter by user ID in metadata
+        // Filter by user ID in metadata AND only show completed payments
         const hasMetadata = pi.metadata && pi.metadata.userId === userId && pi.metadata.source === 'gotravelapp_coffee_support';
+        const isCompleted = pi.status === 'succeeded' || pi.status === 'refunded' || (pi.status === 'canceled' && pi.amount_received > 0);
+        
         if (pi.metadata) {
-          console.log(`🔍 Payment ${pi.id}: userId=${pi.metadata.userId}, looking for=${userId}, match=${hasMetadata}`);
+          console.log(`🔍 Payment ${pi.id}: userId=${pi.metadata.userId}, status=${pi.status}, completed=${isCompleted}, match=${hasMetadata && isCompleted}`);
         }
-        return hasMetadata;
+        return hasMetadata && isCompleted;
       })
       .map(pi => ({
         id: pi.id,
