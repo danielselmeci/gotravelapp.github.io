@@ -35,11 +35,14 @@ module.exports = async (req, res) => {
 
     console.log(`🔄 Confirming payment intent: ${paymentIntentId} with Apple Pay token`);
 
+    // For Apple Pay, create a token directly from the payment data
+    console.log('Apple Pay token received');
+
     // Create payment method from Apple Pay token
     const paymentMethod = await stripe.paymentMethods.create({
       type: 'card',
       card: {
-        token: payment_token
+        token: payment_token.id
       }
     });
 
@@ -47,8 +50,7 @@ module.exports = async (req, res) => {
 
     // Confirm the payment intent with the payment method
     const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
-      payment_method: paymentMethod.id,
-      return_url: 'https://gotravelapp-github-io.vercel.app' // Required for some payment types
+      payment_method: paymentMethod.id
     });
 
     console.log(`✅ Payment confirmation result: ${paymentIntent.status}`);
