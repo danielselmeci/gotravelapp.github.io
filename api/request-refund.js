@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
 
     // Fetch the payment intent from Stripe
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId, {
-      expand: ['charges']
+      expand: ['charges', 'refunds']
     });
 
     if (!paymentIntent) {
@@ -41,18 +41,27 @@ module.exports = async (req, res) => {
       });
     }
 
+    console.log(`🔍 Payment Intent Debug:`);
+    console.log(`   ID: ${paymentIntent.id}`);
+    console.log(`   Status: ${paymentIntent.status}`);
+    console.log(`   Charges count: ${paymentIntent.charges?.data?.length || 0}`);
+    console.log(`   Amount: ${paymentIntent.amount}`);
+
     if (paymentIntent.status !== 'succeeded') {
       return res.status(400).json({
         error: 'Invalid payment status',
-        message: 'Only succeeded payments can be refunded'
+        message: `Payment status is '${paymentIntent.status}', only succeeded payments can be refunded`
       });
     }
 
     // Check if there's a charge to refund
     if (!paymentIntent.charges || !paymentIntent.charges.data.length) {
+      console.log(`❌ No charges found for payment ${paymentIntentId}`);
+      console.log(`   Payment Intent:`, JSON.stringify(paymentIntent, null, 2));
+      
       return res.status(400).json({
         error: 'No charge found',
-        message: 'No chargeable amount found for this payment'
+        message: 'No chargeable amount found for this payment. This might be a payment that was not completed or captured.'
       });
     }
 
