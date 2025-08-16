@@ -58,19 +58,17 @@ module.exports = async (req, res) => {
     // We need to create a proper Stripe token from this data
     
     try {
-      // For Apple Pay, let's try using Stripe's Sources API which is designed for Apple Pay
-      console.log('🔄 Creating Stripe source from Apple Pay data...');
+      // For Apple Pay, we need to confirm the payment intent directly with the payment data
+      // Apple Pay tokens from iOS PassKit are already encrypted and formatted for Stripe
+      console.log('🔄 Confirming payment intent directly with Apple Pay token...');
       
-      const source = await stripe.sources.create({
-        type: 'card',
-        token: apple_pay_token
-      });
-      
-      console.log(`✅ Created Stripe source: ${source.id}`);
-      
-      // Confirm payment intent with the source
       const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
-        source: source.id
+        payment_method_data: {
+          type: 'card',
+          card: {
+            token: apple_pay_token
+          }
+        }
       });
       
       console.log(`✅ Payment confirmed successfully: ${paymentIntent.status}`);
@@ -79,45 +77,19 @@ module.exports = async (req, res) => {
         client_secret: paymentIntent.client_secret,
         amount: paymentIntent.amount,
         currency: paymentIntent.currency,
-        method: 'stripe_source'
+        method: 'direct_apple_pay'
       });
       
-    } catch (sourceError) {
-      console.log('❌ Stripe source creation failed:', sourceError.message);
-      console.log('❌ Source error details:', JSON.stringify(sourceError, null, 2));
+    } catch (directError) {
+      console.log('❌ Direct Apple Pay confirmation failed:', directError.message);
+      console.log('❌ Direct error details:', JSON.stringify(directError, null, 2));
       
-      // Approach 2: Try direct payment_method_data approach
-      try {
-        console.log('🔄 Trying direct payment_method_data approach...');
-        
-        const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
-          payment_method_data: {
-            type: 'card',
-            card: {
-              token: apple_pay_token
-            }
-          }
-        });
-        
-        console.log(`✅ Payment confirmed via direct method: ${paymentIntent.status}`);
-        return res.status(200).json({
-          status: paymentIntent.status,
-          client_secret: paymentIntent.client_secret,
-          amount: paymentIntent.amount,
-          currency: paymentIntent.currency,
-          method: 'direct_payment_method_data'
-        });
-        
-      } catch (directError) {
-        console.log('❌ Direct approach also failed:', directError.message);
-        console.log('❌ Direct error details:', JSON.stringify(directError, null, 2));
-        
-        // Log more details for debugging
-        console.log('🔍 Apple Pay token length:', apple_pay_token.length);
-        console.log('🔍 Apple Pay token preview:', apple_pay_token.substring(0, 100) + '...');
-        
-        throw new Error(`All Apple Pay processing approaches failed. Source: ${sourceError.message}, Direct: ${directError.message}`);
-      }
+      // Log more details for debugging
+      console.log('🔍 Apple Pay token length:', apple_pay_token.length);
+      console.log('🔍 Apple Pay token preview:', apple_pay_token.substring(0, 100) + '...');
+      
+      // Re-throw the error for the main catch block to handle
+      throw directError;
     }
 
     console.log(`✅ Payment confirmation result: ${paymentIntent.status}`);
@@ -171,10 +143,15 @@ module.exports = async (req, res) => {
       });
     }
 
+    // Log the complete error for debugging
+    console.error('❌ Complete error object:', JSON.stringify(error, null, 2));
+    console.error('❌ Error stack trace:', error.stack);
+    
     // Generic error response
     res.status(500).json({
       error: 'Internal server error',
-      message: 'An unexpected error occurred during payment confirmation'
+      message: 'An unexpected error occurred during payment confirmation',
+      debug_info: error.message
     });
   }
 };
