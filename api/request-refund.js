@@ -31,12 +31,18 @@ module.exports = async (req, res) => {
 
     // Fetch the payment intent from Stripe
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId, {
-      expand: ['charges.data.refunds']
+      expand: ['charges.data']
     });
     
     console.log(`🔍 Retrieved payment intent: ${paymentIntent.id}`);
     console.log(`   Status: ${paymentIntent.status}`);
     console.log(`   Charges count: ${paymentIntent.charges ? paymentIntent.charges.data.length : 0}`);
+    console.log(`   Charges object structure:`, {
+      hasCharges: !!paymentIntent.charges,
+      isObject: typeof paymentIntent.charges === 'object',
+      hasData: !!(paymentIntent.charges && paymentIntent.charges.data),
+      dataLength: paymentIntent.charges && paymentIntent.charges.data ? paymentIntent.charges.data.length : 0
+    });
 
     if (!paymentIntent) {
       return res.status(404).json({
