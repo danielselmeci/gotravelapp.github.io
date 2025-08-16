@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
     console.log(`🔍 Payment Intent Debug:`);
     console.log(`   ID: ${paymentIntent.id}`);
     console.log(`   Status: ${paymentIntent.status}`);
-    console.log(`   Charges count: ${paymentIntent.charges?.data?.length || 0}`);
+    console.log(`   Charges count: ${paymentIntent.charges && paymentIntent.charges.data ? paymentIntent.charges.data.length : 0}`);
     console.log(`   Amount: ${paymentIntent.amount}`);
 
     if (paymentIntent.status !== 'succeeded') {
@@ -57,7 +57,13 @@ module.exports = async (req, res) => {
     // Check if there's a charge to refund
     if (!paymentIntent.charges || !paymentIntent.charges.data.length) {
       console.log(`❌ No charges found for payment ${paymentIntentId}`);
-      console.log(`   Payment Intent:`, JSON.stringify(paymentIntent, null, 2));
+      try {
+        console.log(`   Payment Intent keys:`, Object.keys(paymentIntent));
+        console.log(`   Payment Intent amount:`, paymentIntent.amount);
+        console.log(`   Payment Intent status:`, paymentIntent.status);
+      } catch (err) {
+        console.log(`   Error logging payment intent:`, err.message);
+      }
       
       return res.status(400).json({
         error: 'No charge found',
