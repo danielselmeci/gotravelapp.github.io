@@ -20,13 +20,13 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { client_secret, payment_token } = req.body;
+    const { client_secret, apple_pay_token, transaction_identifier } = req.body;
 
     // Validate required fields
-    if (!client_secret || !payment_token) {
+    if (!client_secret || !apple_pay_token) {
       return res.status(400).json({
         error: 'Missing required fields',
-        message: 'client_secret and payment_token are required'
+        message: 'client_secret and apple_pay_token are required'
       });
     }
 
@@ -34,29 +34,82 @@ module.exports = async (req, res) => {
     const paymentIntentId = client_secret.split('_secret_')[0];
 
     console.log(`🔄 Confirming payment intent: ${paymentIntentId} with Apple Pay token`);
+    console.log(`🍎 Transaction ID: ${transaction_identifier}`);
 
-    // Apple Pay tokens need to be processed differently
-    // First, let's parse the Apple Pay token to understand its structure
+    // Try to decode and understand the Apple Pay token structure
     let applePayData;
     try {
-      // The payment_token.id contains base64 encoded Apple Pay data
-      const decodedData = Buffer.from(payment_token.id, 'base64').toString('utf8');
+      const decodedData = Buffer.from(apple_pay_token, 'base64').toString('utf8');
       applePayData = JSON.parse(decodedData);
-      console.log('Decoded Apple Pay data structure:', JSON.stringify(applePayData, null, 2));
+      console.log('🍎 Apple Pay token structure:', {
+        version: applePayData.version,
+        hasData: !!applePayData.data,
+        hasSignature: !!applePayData.signature,
+        hasHeader: !!applePayData.header
+      });
     } catch (error) {
-      console.log('Could not decode Apple Pay data, using raw token');
+      console.log('Could not decode Apple Pay token as JSON, trying as raw token');
     }
 
-    // For Apple Pay, we need to attach the payment method directly to the payment intent
-    // Apple Pay uses a different flow than regular card tokens
-    const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
-      payment_method_data: {
-        type: 'card',
-        card: {
-          token: payment_token.id
+    // Try multiple approaches to handle the Apple Pay token
+    console.log('🔄 Attempting to confirm payment with Apple Pay...');
+
+    // Approach 1: Direct payment_method_data with raw token
+    try {
+      const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
+        payment_method_data: {
+          type: 'card',
+          card: {
+            token: apple_pay_token
+          }
         }
+      });
+      
+      console.log(`✅ Payment confirmed successfully: ${paymentIntent.status}`);
+      return res.status(200).json({
+        status: paymentIntent.status,
+        client_secret: paymentIntent.client_secret,
+        amount: paymentIntent.amount,
+        currency: paymentIntent.currency,
+        method: 'payment_method_data'
+      });
+      
+    } catch (directError) {
+      console.log('❌ Direct approach failed:', directError.message);
+      
+      // Approach 2: Create token first
+      try {
+        const token = await stripe.tokens.create({
+          card: apple_pay_token
+        });
+        
+        console.log(`✅ Created token: ${token.id}`);
+        
+        const paymentMethod = await stripe.paymentMethods.create({
+          type: 'card',
+          card: {
+            token: token.id
+          }
+        });
+        
+        const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
+          payment_method: paymentMethod.id
+        });
+        
+        console.log(`✅ Payment confirmed via token: ${paymentIntent.status}`);
+        return res.status(200).json({
+          status: paymentIntent.status,
+          client_secret: paymentIntent.client_secret,
+          amount: paymentIntent.amount,
+          currency: paymentIntent.currency,
+          method: 'token_then_payment_method'
+        });
+        
+      } catch (tokenError) {
+        console.log('❌ Token approach also failed:', tokenError.message);
+        throw new Error(`All Apple Pay processing approaches failed. Direct: ${directError.message}, Token: ${tokenError.message}`);
       }
-    });
+    }
 
     console.log(`✅ Payment confirmation result: ${paymentIntent.status}`);
 
