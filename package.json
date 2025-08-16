@@ -1,0 +1,17 @@
+{
+  "name": "gotravelapp-backend",
+  "version": "1.0.0",
+  "description": "Serverless backend for GoTravelApp payments",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "stripe": "^14.21.0",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
