@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
     // For now, we'll get recent payments and filter by metadata or description
     const paymentIntents = await stripe.paymentIntents.list({
       limit: 50,
-      expand: ['data.charges']
+      expand: ['data.charges', 'data.refunds']
     });
 
     console.log(`📡 Retrieved ${paymentIntents.data.length} payment intents from Stripe`);
@@ -53,19 +53,35 @@ module.exports = async (req, res) => {
         }
         return hasMetadata && isCompleted;
       })
-      .map(pi => ({
-        id: pi.id,
-        paymentIntentId: pi.id,
-        amount: pi.amount / 100, // Convert from cents
-        currency: pi.currency,
-        description: pi.description || 'Support Payment',
-        status: mapStripeStatus(pi.status),
-        createdAt: new Date(pi.created * 1000).toISOString(),
-        refundStatus: getRefundStatus(pi),
-        refundAmount: getRefundAmount(pi),
-        refundReason: null, // Would come from your database
-        refundRequestedAt: null // Would come from your database
-      }))
+      .map(pi => {
+        const refundStatus = getRefundStatus(pi);
+        const refundAmount = getRefundAmount(pi);
+        
+        console.log(`🔍 Payment ${pi.id}:`);
+        console.log(`   Charges: ${pi.charges?.data?.length || 0}`);
+        console.log(`   Refunds: ${pi.refunds?.data?.length || 0}`);
+        if (pi.charges?.data?.length > 0) {
+          const charge = pi.charges.data[0];
+          console.log(`   Charge refunded: ${charge.refunded}`);
+          console.log(`   Amount refunded: ${charge.amount_refunded || 0} / ${charge.amount}`);
+        }
+        console.log(`   Calculated refund status: ${refundStatus}`);
+        console.log(`   Calculated refund amount: ${refundAmount}`);
+        
+        return {
+          id: pi.id,
+          paymentIntentId: pi.id,
+          amount: pi.amount / 100, // Convert from cents
+          currency: pi.currency,
+          description: pi.description || 'Support Payment',
+          status: mapStripeStatus(pi.status),
+          createdAt: new Date(pi.created * 1000).toISOString(),
+          refundStatus: refundStatus,
+          refundAmount: refundAmount,
+          refundReason: null, // Would come from your database
+          refundRequestedAt: null // Would come from your database
+        };
+      })
       .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Most recent first
 
     console.log(`✅ Returning ${userPayments.length} payments for user`);
@@ -105,8 +121,29 @@ function getRefundStatus(paymentIntent) {
   }
 
   const charge = paymentIntent.charges.data[0];
-  if (charge.refunded) {
-    return charge.amount_refunded === charge.amount ? 'completed' : 'completed';
+  
+  // Check if payment has been refunded
+  if (charge.refunded && charge.amount_refunded > 0) {
+    // Fully refunded
+    if (charge.amount_refunded === charge.amount) {
+      return 'completed';
+    }
+    // Partially refunded
+    return 'completed'; // We'll use 'completed' for both full and partial for now
+  }
+
+  // Check if refund is processing
+  if (paymentIntent.refunds && paymentIntent.refunds.data.length > 0) {
+    const latestRefund = paymentIntent.refunds.data[0];
+    if (latestRefund.status === 'pending') {
+      return 'processing';
+    }
+    if (latestRefund.status === 'succeeded') {
+      return 'completed';
+    }
+    if (latestRefund.status === 'failed') {
+      return 'rejected';
+    }
   }
 
   return 'none';
