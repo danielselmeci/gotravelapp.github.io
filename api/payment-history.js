@@ -31,14 +31,21 @@ module.exports = async (req, res) => {
     // For now, we'll get recent payments and filter by metadata or description
     const paymentIntents = await stripe.paymentIntents.list({
       limit: 50,
-      expand: ['data.charges']
+      expand: ['data.charges.data.refunds']
     });
 
     console.log(`📡 Retrieved ${paymentIntents.data.length} payment intents from Stripe`);
 
-    // Debug: Log first few payment intents to see metadata structure
+    // Debug: Log first few payment intents to see structure
     if (paymentIntents.data.length > 0) {
-      console.log(`🔍 Sample payment metadata:`, JSON.stringify(paymentIntents.data[0].metadata, null, 2));
+      const firstPayment = paymentIntents.data[0];
+      console.log(`🔍 Sample payment metadata:`, JSON.stringify(firstPayment.metadata, null, 2));
+      console.log(`🔍 Sample payment charges:`, {
+        hasCharges: !!(firstPayment.charges && firstPayment.charges.data.length),
+        chargeCount: firstPayment.charges ? firstPayment.charges.data.length : 0,
+        firstChargeRefunded: firstPayment.charges?.data[0]?.refunded || false,
+        firstChargeAmountRefunded: firstPayment.charges?.data[0]?.amount_refunded || 0
+      });
     }
 
     // Filter and format payments for this user
