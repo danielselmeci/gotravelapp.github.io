@@ -35,22 +35,27 @@ module.exports = async (req, res) => {
 
     console.log(`🔄 Confirming payment intent: ${paymentIntentId} with Apple Pay token`);
 
-    // For Apple Pay, create a token directly from the payment data
-    console.log('Apple Pay token received');
+    // Apple Pay tokens need to be processed differently
+    // First, let's parse the Apple Pay token to understand its structure
+    let applePayData;
+    try {
+      // The payment_token.id contains base64 encoded Apple Pay data
+      const decodedData = Buffer.from(payment_token.id, 'base64').toString('utf8');
+      applePayData = JSON.parse(decodedData);
+      console.log('Decoded Apple Pay data structure:', JSON.stringify(applePayData, null, 2));
+    } catch (error) {
+      console.log('Could not decode Apple Pay data, using raw token');
+    }
 
-    // Create payment method from Apple Pay token
-    const paymentMethod = await stripe.paymentMethods.create({
-      type: 'card',
-      card: {
-        token: payment_token.id
-      }
-    });
-
-    console.log(`✅ Created payment method: ${paymentMethod.id}`);
-
-    // Confirm the payment intent with the payment method
+    // For Apple Pay, we need to attach the payment method directly to the payment intent
+    // Apple Pay uses a different flow than regular card tokens
     const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
-      payment_method: paymentMethod.id
+      payment_method_data: {
+        type: 'card',
+        card: {
+          token: payment_token.id
+        }
+      }
     });
 
     console.log(`✅ Payment confirmation result: ${paymentIntent.status}`);
