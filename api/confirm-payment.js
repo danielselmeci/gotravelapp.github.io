@@ -58,15 +58,34 @@ module.exports = async (req, res) => {
     // We need to create a proper Stripe token from this data
     
     try {
-      // For Apple Pay, we need to confirm the payment intent directly with the payment data
-      // Apple Pay tokens from iOS PassKit are already encrypted and formatted for Stripe
-      console.log('🔄 Confirming payment intent directly with Apple Pay token...');
+      // Apple Pay tokens need to be processed through Stripe's token API first
+      console.log('🔄 Creating Stripe token from Apple Pay data...');
       
+      // Decode the Apple Pay token to get the payment data
+      let applePayData;
+      try {
+        const decodedString = Buffer.from(apple_pay_token, 'base64').toString('utf8');
+        applePayData = JSON.parse(decodedString);
+        console.log('🍎 Apple Pay token structure confirmed');
+      } catch (decodeError) {
+        console.log('❌ Failed to decode Apple Pay token:', decodeError.message);
+        throw new Error('Invalid Apple Pay token format');
+      }
+      
+      // Create a Stripe token using the Apple Pay data
+      // For Apple Pay, we need to send the token data in a specific format
+      const stripeToken = await stripe.tokens.create({
+        card: apple_pay_token  // Send the full base64 encoded token
+      });
+      
+      console.log(`✅ Created Stripe token: ${stripeToken.id}`);
+      
+      // Now confirm the payment intent with the Stripe token
       const paymentIntent = await stripe.paymentIntents.confirm(paymentIntentId, {
         payment_method_data: {
           type: 'card',
           card: {
-            token: apple_pay_token
+            token: stripeToken.id
           }
         }
       });
