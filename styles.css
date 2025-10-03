@@ -2,7 +2,11 @@
 :root {
     --primary-color: #007AFF;
     --secondary-color: #5856D6;
+    --accent-color: #FF6B6B;
+    --success-color: #34C759;
+    --warning-color: #FF9500;
     --text-color: #1D1D1F;
+    --text-secondary: #666666;
     --light-gray: #F5F5F7;
     --border-color: #D2D2D7;
     --glass-bg: rgba(255, 255, 255, 0.8);
@@ -11,8 +15,16 @@
     --glass-bg-strong: rgba(255, 255, 255, 0.6);
     --glass-border-strong: rgba(255, 255, 255, 0.4);
     --glass-shadow-strong: 0 12px 48px rgba(0, 0, 0, 0.15);
-    --hero-gradient: linear-gradient(135deg, #e0e7ff 0%, #f5f7fa 100%);
-    --cta-gradient: linear-gradient(135deg, #d1eaff 0%, #e0e7ff 100%);
+    --hero-gradient: linear-gradient(135deg, rgba(0, 122, 255, 0.1) 0%, rgba(88, 86, 214, 0.05) 100%);
+    --cta-gradient: linear-gradient(135deg, rgba(0, 122, 255, 0.15) 0%, rgba(88, 86, 214, 0.1) 100%);
+    --travel-gradient: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+    --border-radius-sm: 12px;
+    --border-radius-md: 20px;
+    --border-radius-lg: 28px;
+    --border-radius-xl: 36px;
 }
 
 * {
@@ -25,10 +37,13 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background: linear-gradient(135deg, #f7f8fa 0%, #e9ecf3 40%, #f5f7fa 100%);
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.03) 0%, rgba(88, 86, 214, 0.02) 40%, rgba(0, 122, 255, 0.01) 100%);
     font-size: 1.05rem;
     font-weight: 400;
     min-height: 100vh;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Glass Effect */
@@ -36,10 +51,16 @@ body {
     background: rgba(255,255,255,0.65);
     backdrop-filter: blur(18px) saturate(1.2);
     -webkit-backdrop-filter: blur(18px) saturate(1.2);
-    border-radius: 28px;
+    border-radius: var(--border-radius-lg);
     border: 1.5px solid rgba(255,255,255,0.22);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 1.5px 4px rgba(0,0,0,0.04);
-    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+    box-shadow: var(--shadow-md), 0 1.5px 4px rgba(0,0,0,0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg), 0 2px 8px rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.75);
 }
 
 /* Navigation */
@@ -157,21 +178,38 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--primary-color);
+    background: var(--travel-gradient);
     color: white;
     padding: 1rem 2.2rem;
     border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 2px 8px rgba(0,122,255,0.10);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
     font-size: 1.1rem;
     letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
-    background: #005bb5;
-    box-shadow: 0 4px 16px rgba(0,122,255,0.15);
+    background: linear-gradient(135deg, #005bb5 0%, #4A47A3 100%);
+    box-shadow: var(--shadow-md);
     transform: translateY(-2px) scale(1.03);
 }
 
@@ -839,7 +877,11 @@ h1, h2, h3, h4 {
   :root {
     --primary-color: #0A84FF;
     --secondary-color: #5E5CE6;
+    --accent-color: #FF6B6B;
+    --success-color: #30D158;
+    --warning-color: #FF9F0A;
     --text-color: #F5F5F7;
+    --text-secondary: #B0B0B8;
     --light-gray: #18181A;
     --border-color: #33343A;
     --glass-bg: rgba(28, 28, 30, 0.7);
@@ -848,8 +890,12 @@ h1, h2, h3, h4 {
     --glass-border-strong: rgba(255, 255, 255, 0.18);
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.45);
     --glass-shadow-strong: 0 12px 48px rgba(0,0,0,0.55);
-    --hero-gradient: linear-gradient(135deg, #232336 0%, #18181A 100%);
-    --cta-gradient: linear-gradient(135deg, #232336 0%, #18181A 100%);
+    --hero-gradient: linear-gradient(135deg, rgba(10, 132, 255, 0.1) 0%, rgba(94, 92, 230, 0.05) 100%);
+    --cta-gradient: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(94, 92, 230, 0.1) 100%);
+    --travel-gradient: linear-gradient(135deg, #0A84FF 0%, #5E5CE6 100%);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
   }
   body {
     background: linear-gradient(135deg, #18181A 0%, #232336 60%, #18181A 100%);
@@ -1060,7 +1106,7 @@ section, .device-mockup {
   position: relative;
   display: flex;
   align-items: center;
-  margin-left: 0.0rem;
+  margin-left: 0.5rem;
 }
 .lang-btn {
   background: none;
@@ -1136,4 +1182,208 @@ section, .device-mockup {
 }
 
 /* Remove previous language option styles */
-.lang-option, .lang-option.active { display: none !important; } 
+.lang-option, .lang-option.active { display: none !important; }
+
+/* New Modern Features */
+
+/* Travel-themed floating elements */
+.travel-float {
+    position: absolute;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.travel-float:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.travel-float:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+.travel-float:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+.travel-float:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 1s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Enhanced loading states */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Improved focus states for accessibility */
+.cta-button:focus,
+.download-btn:focus,
+.secondary-button:focus,
+.nav-links a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Travel-themed section dividers */
+.travel-divider {
+    position: relative;
+    height: 2px;
+    background: var(--travel-gradient);
+    margin: 4rem auto;
+    max-width: 200px;
+    border-radius: 1px;
+}
+
+.travel-divider::before {
+    content: '✈️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Enhanced card hover effects */
+.feature-card,
+.stat-card,
+.testimonial-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before,
+.stat-card::before,
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--travel-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.feature-card:hover::before,
+.stat-card:hover::before,
+.testimonial-card:hover::before {
+    opacity: 0.05;
+}
+
+/* Travel-themed badges */
+.travel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--travel-gradient);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    margin: 0.5rem 0;
+}
+
+.travel-badge i {
+    font-size: 1rem;
+}
+
+/* Enhanced mobile experience */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .cta-button {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .feature-card,
+    .stat-card,
+    .testimonial-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Performance optimizations */
+.feature-card,
+.stat-card,
+.testimonial-card,
+.cta-button,
+.glass {
+    will-change: transform;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .travel-float {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0066CC;
+        --text-color: #000000;
+        --border-color: #000000;
+    }
+    
+    .glass {
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid var(--border-color);
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .cta-section,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .hero,
+    .features,
+    .about {
+        break-inside: avoid;
+    }
+} 
