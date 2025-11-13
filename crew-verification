@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Verification – GoTravelApp Support</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                Go TravelApp
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../support.html">Support</a>
+                <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="download-btn">Download</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="support-content">
+        <h1>Crew Verification</h1>
+        <p class="section-subtitle">Why we verify crew members (and how to get approved fast).</p>
+
+        <section class="glass faq-section" style="margin-bottom:2.5rem;">
+            <h2>Why verification matters</h2>
+            <p>
+                Layover Lounge chats contain flight-sensitive information: routes, hotel assignments, transportation, and local safety tips.
+                Verification lets us confirm that every participant actually works for the airline operating the layover, keeping conversations
+                private and trusted.
+            </p>
+        </section>
+
+        <section class="glass faq-section" style="margin-bottom:2.5rem;">
+            <h2>Instant verification via airline email</h2>
+            <ol>
+                <li>Open GoTravelApp → Crew+ → Tap “Get verified instantly”.</li>
+                <li>Enter your airline-issued email address and tap “Send link”.</li>
+                <li>Confirm the one-time link sent to that inbox. That’s it—approval is instant once the link is opened.</li>
+            </ol>
+            <p class="section-subtitle" style="margin-top:1.5rem;">Tip: the link expires after 15 minutes—request a new one if it times out.</p>
+        </section>
+
+        <section class="glass faq-section" style="margin-bottom:2.5rem;">
+            <h2>No airline email? Upload documents instead</h2>
+            <p>You can still get verified—approval usually takes less than 24 hours.</p>
+            <ul>
+                <li>Open GoTravelApp → Crew+ → “Upload crew ID or employment letter”.</li>
+                <li>Choose <strong>one</strong> of the following:
+                    <ul style="margin-top:0.5rem;">
+                        <li>Current crew ID (front + back)</li>
+                        <li>Recent employment letter on airline letterhead</li>
+                        <li>Paystub dated within the last 60 days</li>
+                    </ul>
+                </li>
+                <li>We’ll email you when the document is approved—or if we need a clearer copy.</li>
+            </ul>
+        </section>
+
+        <section class="glass faq-section" style="margin-bottom:2.5rem;">
+            <h2>Keeping your information private</h2>
+            <ul>
+                <li>Uploads are encrypted at rest and permanently deleted once reviewed.</li>
+                <li>Only our small verification team can view submissions.</li>
+                <li>Verification data is never shared with other crew members or third parties.</li>
+            </ul>
+        </section>
+
+        <section class="glass faq-section" style="margin-bottom:2.5rem;">
+            <h2>Join the layover chat after approval</h2>
+            <ol>
+                <li>Once approved, tap any layover invite QR code (or re-scan the one you already have).</li>
+                <li>The app will add you to the chat automatically if you’re rostered on that airline.</li>
+                <li>If the lounge requires host approval, we’ll send the request for you.</li>
+            </ol>
+        </section>
+
+        <section class="glass faq-section">
+            <h2>Need help?</h2>
+            <p>Reach our verification team directly:</p>
+            <ul>
+                <li>Email: <a href="mailto:verification@gotravelapp.com">verification@gotravelapp.com</a></li>
+                <li>In-app: Crew+ → “Need help getting verified?”</li>
+            </ul>
+            <p style="margin-top:1rem;">We respond within 12 hours (often much sooner).</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GoTravelApp</h4>
+                <p>Made with ♥️ in Rogers, AR</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/go.travelapp"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:info@gotravelapp.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <a href="../support.html">Support</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GoTravelApp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
