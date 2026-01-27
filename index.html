@@ -1,157 +1,262 @@
+<!--
+To support multiple languages, create:
+- index.html (English)
+- index-es.html (Spanish)
+- index-de.html (German)
+- index-hu.html (Hungarian)
+Translate all visible text in each file.
+-->
+<!--
+To support multiple languages, create:
+- index.html (English)
+- index-es.html (Spanish)
+- index-de.html (German)
+- index-hu.html (Hungarian)
+Translate all visible text in each file.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Polymath Sphere LLC</title>
-    <noscript>
-        <meta http-equiv="refresh" content="0; url=/">
-    </noscript>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTravelApp - Your Travel Companion</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="morphing-shapes">
-        <div class="morph-shape"></div>
-        <div class="morph-shape"></div>
-        <div class="morph-shape"></div>
-    </div>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">Polymath Sphere LLC</a>
+    <nav class="navbar glass">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i>
+                Go TravelApp
+            </a>
             <div class="nav-links">
-                <a href="company.html">Company</a>
-                <a href="studio.html">Studio</a>
-                <a href="index.html#contact" class="nav-contact">Contact</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="support.html">Support</a>
+                <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="download-btn">Download</a>
             </div>
+            <!-- Minimal Flag-Only Language Selector -->
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn" aria-label="Change language">
+                    <span id="currentFlag">🇬🇧</span>
+                </button>
+                <div class="lang-dropdown glass" id="langDropdown">
+                    <a href="index.html" class="lang-flag" data-lang="en">🇬🇧</a>
+                    <a href="index-es.html" class="lang-flag" data-lang="es">🇪🇸</a>
+                    <a href="index-de.html" class="lang-flag" data-lang="de">🇩🇪</a>
+                    <a href="index-hu.html" class="lang-flag" data-lang="hu">🇭🇺</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title">Polymath Sphere LLC</h1>
-                <p class="hero-subtitle">A privately held digital firm.</p>
-                <p class="hero-tagline">Software · Web · Design</p>
-                <div class="hero-buttons">
-                    <a href="studio.html" class="btn btn-text">Studio</a>
-                    <a href="#contact" class="btn btn-text">Contact</a>
-                </div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Your Travel Companion,<br>All in One Place</h1>
+            <p>Organize your trips, track documents, manage expenses, and explore destinations with Go TravelApp - the ultimate travel planning companion.</p>
+            <div style="height: 2.2rem;"></div>
+            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                Download on the App Store
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Available Now</div>
+        </div>
+        <div class="hero-image">
+            <div class="device-mockup">
+                <img src="https://raw.githubusercontent.com/danielselmeci/gotravelapp.github.io/bb79a8a00e4f88603ff2f1f4a08995105dc912e6/app-preview.png" alt="Go TravelApp Preview" class="app-preview">
             </div>
-        </section>
+        </div>
+    </header>
 
-        <!-- Company Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">Company</h2>
-                <div class="content-block">
-                    <p class="large-text">Polymath Sphere LLC is a U.S.-based private company focused on the ownership and development of digital systems.</p>
-                    <p class="large-text">The firm maintains an internal studio responsible for building its software assets and undertaking a limited number of external engagements.</p>
+    <section id="features" class="features">
+        <div class="section-container">
+            <h2>Designed for Travelers</h2>
+            <p class="section-subtitle">Everything you need in one place</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-passport"></i>
+                    <h3>Document Management</h3>
+                    <p>Keep track of your passports, visas, and important travel documents with secure storage and expiration reminders.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Studio Section -->
-        <section class="section studio-section">
-            <div class="container">
-                <h2 class="section-title">Studio</h2>
-                <div class="content-block">
-                    <p class="large-text">The Polymath Sphere studio designs and engineers modern software, web platforms, and digital experiences.</p>
-                    <p class="large-text">Work is approached with an emphasis on structure, longevity, and clarity rather than scale or volume.</p>
+                <div class="feature-card glass">
+                    <i class="fas fa-suitcase"></i>
+                    <h3>Trip Planning</h3>
+                    <p>Create detailed trip itineraries with agenda items, packing lists, and travel checklists for every adventure.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Capabilities Section -->
-        <section class="section capabilities-section">
-            <div class="container">
-                <h2 class="section-title">Capabilities</h2>
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <span class="counter-number" data-target="4">0</span>
-                        <span class="counter-label">Core Capabilities</span>
-                    </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Expense Tracking</h3>
+                    <p>Track your travel expenses, manage budgets, and keep your spending organized with detailed expense reports.</p>
                 </div>
-                <div class="capabilities-list">
-                    <div class="capability-item">
-                        <h3 class="capability-title">Product & Software Development</h3>
-                        <p class="capability-description">Design and implementation of applications and internal systems.</p>
-                    </div>
-                    <div class="capability-item">
-                        <h3 class="capability-title">Web & Platform Architecture</h3>
-                        <p class="capability-description">Structured, maintainable web platforms and digital infrastructure.</p>
-                    </div>
-                    <div class="capability-item">
-                        <h3 class="capability-title">Design Systems</h3>
-                        <p class="capability-description">Interface, identity, and experience design for digital products.</p>
-                    </div>
-                    <div class="capability-item">
-                        <h3 class="capability-title">Technical Advisory</h3>
-                        <p class="capability-description">Architecture review, system planning, and implementation guidance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Engagement Model Section -->
-        <section class="section engagement-section">
-            <div class="container">
-                <h2 class="section-title">Engagement Model</h2>
-                <div class="content-block">
-                    <p class="large-text">Polymath Sphere undertakes a limited number of external projects aligned with its internal standards.</p>
-                    <p class="large-text">Engagements are defined by clear scope, independent operation, and long-term maintainability.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2 class="section-title">Contact</h2>
-                <p class="contact-text">For inquiries regarding studio engagements or general information.</p>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-submit">Send Message</button>
-                    <div class="form-message" id="formMessage"></div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-main">
-                    <p class="footer-name">Polymath Sphere LLC</p>
-                    <p class="footer-location">Arkansas, United States</p>
-                    <p class="footer-statement">Privately held. Independently operated.</p>
-                    <p class="footer-statement">Each engagement is governed by a standalone statement of work.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="company.html">Company</a>
-                    <a href="studio.html">Studio</a>
-                    <a href="careers.html">Careers</a>
-                    <a href="legal.html">Legal</a>
-                    <a href="impressum.html">Impressum</a>
-                    <a href="index.html#contact">Contact</a>
+                <div class="feature-card glass">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Interactive Maps</h3>
+                    <p>Explore destinations with interactive maps, find nearby attractions, and plan your route with ease.</p>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="section-container centered-section">
+            <h2>Why Choose Go TravelApp?</h2>
+            <p class="section-subtitle">Get started in three simple steps</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-lock"></i>
+                    <h3>Privacy First</h3>
+                    <p>Your travel data is encrypted and never shared. You're always in control.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Access</h3>
+                    <p>All your documents, trips, and reminders—right at your fingertips, anytime, anywhere.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-magic"></i>
+                    <h3>Effortless Experience</h3>
+                    <p>Designed with Apple's best-in-class UI principles for a seamless, beautiful journey.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Global Ready</h3>
+                    <p>Visa checks, country info, and travel tools for every destination you dream of.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="section-container centered-section">
+            <h2>How It Works</h2>
+            <p class="section-subtitle">Get started in three simple steps</p>
+            <div class="feature-grid">
+                <div class="feature-card glass">
+                    <i class="fas fa-download"></i>
+                    <h3>1. Download & Install</h3>
+                    <p>Download Go TravelApp from the App Store and get started with your travel planning journey.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>2. Set Up Your Profile</h3>
+                    <p>Add your travel documents, set up your profile, and customize your preferences securely.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>3. Enjoy Stress-Free Travel</h3>
+                    <p>Plan trips, track documents, manage expenses, and receive smart reminders—all in one place, wherever you go.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-content">
+                <h2>About Go TravelApp</h2>
+                <p class="section-subtitle">Made with passion in Rogers, AR</p>
+                <div class="about-text">
+                    <p>Go TravelApp was born from a simple idea: make travel planning easier and more organized. We understand the challenges of managing travel documents, planning trips, and staying on top of important deadlines.</p>
+                    <p>Our mission is to provide travelers with a comprehensive solution that simplifies their journey from planning to execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content glass">
+            <h2>Ready to Simplify Your Travel?</h2>
+            <p>Download Go TravelApp today and experience the ultimate travel planning companion with document management, expense tracking, and interactive maps.</p>
+            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                <i class="fab fa-apple"></i>
+                Download on the App Store
+            </a>
+            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Available Now</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Go TravelApp</h4>
+                <p>Made with ♥️ in Rogers, AR</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/go.travelapp"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:info@gotravelapp.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Go TravelApp. All rights reserved.</p>
+        </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- Auto-detect language and redirect on first visit ---
+        (function() {
+            if (window.localStorage.getItem('gotravelapp-lang-redirected')) return;
+            var lang = navigator.language || navigator.userLanguage;
+            lang = lang.toLowerCase();
+            var redirect = null;
+            if (lang.startsWith('es')) redirect = 'index-es.html';
+            else if (lang.startsWith('de')) redirect = 'index-de.html';
+            else if (lang.startsWith('hu')) redirect = 'index-hu.html';
+            if (redirect && window.location.pathname.indexOf(redirect) === -1 && window.location.pathname.indexOf('index.html') !== -1) {
+                window.localStorage.setItem('gotravelapp-lang-redirected', '1');
+                window.location.replace(redirect);
+            }
+        })();
+
+        // Minimal flag-only language selector logic
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+        const currentFlag = document.getElementById('currentFlag');
+        const langMap = { en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', hu: '🇭🇺' };
+        let current = 'en';
+        if (window.location.pathname.endsWith('index-es.html')) current = 'es';
+        else if (window.location.pathname.endsWith('index-de.html')) current = 'de';
+        else if (window.location.pathname.endsWith('index-hu.html')) current = 'hu';
+        currentFlag.textContent = langMap[current];
+        // Hide current flag from dropdown
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            if (flag.dataset.lang === current) flag.style.display = 'none';
+            else flag.style.display = 'flex';
+        });
+        langBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', function(e) {
+            langDropdown.classList.remove('show');
+        });
+    </script>
 </body>
-</html>
+</html> 
