@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymath Sphere LLC - Business Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: 3.5in 2in;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #FAFAFA;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .business-card {
+            width: 3.5in;
+            height: 2in;
+            background: #FFFFFF;
+            padding: 0.5in;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Grid pattern overlay */
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            margin-bottom: auto;
+        }
+
+        .company-name {
+            font-family: 'Inter Tight', 'Inter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1A1A1A;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .company-tagline {
+            font-size: 8px;
+            color: #6B7280;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .card-body {
+            margin-top: auto;
+            padding-top: 8px;
+        }
+
+        .card-info {
+            font-size: 9px;
+            color: #6B7280;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        .card-info strong {
+            color: #1A1A1A;
+            font-weight: 500;
+        }
+
+        .card-contact {
+            font-size: 8px;
+            color: #6366F1;
+            text-decoration: none;
+            margin-top: 6px;
+            display: inline-block;
+        }
+
+        .card-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #6366F1, #818CF8);
+        }
+
+        /* Dark mode version */
+        .business-card.dark {
+            background: #14141A;
+        }
+
+        .business-card.dark .company-name {
+            color: #F5F5F5;
+        }
+
+        .business-card.dark .card-info {
+            color: #A1A1AA;
+        }
+
+        .business-card.dark .card-info strong {
+            color: #F5F5F5;
+        }
+
+        .business-card.dark .card-contact {
+            color: #818CF8;
+        }
+
+        .business-card.dark::before {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .card-container {
+                gap: 0;
+            }
+
+            .business-card {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .controls button {
+            padding: 8px 16px;
+            margin: 5px;
+            background: #6366F1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .controls button:hover {
+            background: #818CF8;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls no-print">
+        <button onclick="window.print()">Print Card</button>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+    <div class="card-container">
+        <!-- Front of Card -->
+        <div class="business-card" id="card">
+            <div class="card-content">
+                <div class="card-header">
+                    <div class="company-name">Polymath Sphere LLC</div>
+                    <div class="company-tagline">A privately held digital firm</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <strong>Arkansas, United States</strong>
+                    </div>
+                    <div class="card-info">
+                        Software · Web · Design
+                    </div>
+                    <a href="https://polymathsphere.com" class="card-contact">polymathsphere.com</a>
+                </div>
+            </div>
+            <div class="card-accent"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const card = document.getElementById('card');
+            card.classList.toggle('dark');
+        }
+
+        // Print functionality
+        window.addEventListener('beforeprint', function() {
+            document.body.style.background = 'white';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.body.style.background = '#FAFAFA';
+        });
+    </script>
+</body>
+</html>
