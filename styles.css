@@ -91,6 +91,26 @@ body {
     gap: 0.5rem;
 }
 
+.logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: block;
+    flex-shrink: 0;
+}
+
+.hero-brand {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.hero-actions {
+    margin-top: 2.2rem;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;

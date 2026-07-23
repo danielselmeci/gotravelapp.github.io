@@ -1,34 +1,110 @@
-<!--
-To support multiple languages, create:
-- index.html (English)
-- index-es.html (Spanish)
-- index-de.html (German)
-- index-hu.html (Hungarian)
-Translate all visible text in each file.
--->
-<!--
-To support multiple languages, create:
-- index.html (English)
-- index-es.html (Spanish)
-- index-de.html (German)
-- index-hu.html (Hungarian)
-Translate all visible text in each file.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoTravelApp - Your Travel Companion</title>
+    <title>Go: TravelApp – Your Smart Travel Companion</title>
+    <meta name="description" content="Go: TravelApp streamlines journey planning with passport & visa tracking, trip planning, visa checks, pre-trip checklists, and destination info—all in one iOS app.">
+    <meta name="theme-color" content="#007AFF">
+    <link rel="canonical" href="https://gotravelapp.com/">
+    <link rel="alternate" hreflang="en" href="https://gotravelapp.com/">
+    <link rel="alternate" hreflang="es" href="https://gotravelapp.com/index-es.html">
+    <link rel="alternate" hreflang="de" href="https://gotravelapp.com/index-de.html">
+    <link rel="alternate" hreflang="hu" href="https://gotravelapp.com/index-hu.html">
+    <link rel="alternate" hreflang="x-default" href="https://gotravelapp.com/">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Go: TravelApp">
+    <meta property="og:title" content="Go: TravelApp – Your Smart Travel Companion">
+    <meta property="og:description" content="Plan trips, track passports & visas, check requirements, and explore destinations—all in one place.">
+    <meta property="og:url" content="https://gotravelapp.com/">
+    <meta property="og:image" content="https://gotravelapp.com/og-image.jpg">
+    <meta property="og:image:width" content="630">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Go: TravelApp – Your Smart Travel Companion">
+    <meta name="twitter:description" content="Plan trips, track passports & visas, check requirements, and explore destinations—all in one place.">
+    <meta name="twitter:image" content="https://gotravelapp.com/og-image.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Go: TravelApp",
+      "operatingSystem": "iOS",
+      "applicationCategory": "TravelApplication",
+      "description": "Go: TravelApp is a digital platform designed to streamline journey planning, exploration, and itinerary management for global travelers.",
+      "downloadUrl": "https://apps.apple.com/us/app/go-travelapp/id6747101413",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q140670084",
+        "https://apps.apple.com/us/app/go-travelapp/id6747101413"
+      ],
+      "creator": {
+        "@type": "Person",
+        "@id": "https://danielselmeci.com/#person",
+        "name": "Daniel Selmeci",
+        "url": "https://danielselmeci.com/",
+        "jobTitle": "Tech Entrepreneur and Photographer",
+        "image": "https://danielselmeci.com/images/daniel-selmeci-headshot.jpg",
+        "description": "Daniel Selmeci is a tech entrepreneur, award-winning photographer, and founder of Polymath Sphere LLC and Go: TravelApp.",
+        "award": [
+          "Shoot The Wild International Wild Photography Award Finalist",
+          "Shoot The Frame featured photograph Castle in the forest"
+        ],
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q140671415",
+          "https://instagram.com/daniel.selmeci",
+          "https://www.facebook.com/daniel.selmeci.images/",
+          "https://my.flightradar24.com/DanielSelmeci",
+          "https://linkedin.com/in/danielselmeci",
+          "https://crunchbase.com/person/daniel-selmeci",
+          "https://500px.com/p/danielselmeci"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://polymathsphere.com/#organization",
+          "name": "Polymath Sphere LLC",
+          "url": "https://polymathsphere.com/",
+          "sameAs": [
+            "https://www.wikidata.org/wiki/Q140670975",
+            "https://apps.apple.com/us/developer/polymath-sphere-llc/id1672842337"
+          ],
+          "founder": {
+            "@type": "Person",
+            "@id": "https://danielselmeci.com/#person"
+          }
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://polymathsphere.com/#organization",
+        "name": "Polymath Sphere LLC",
+        "url": "https://polymathsphere.com/",
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q140670975",
+          "https://apps.apple.com/us/developer/polymath-sphere-llc/id1672842337"
+        ],
+        "founder": {
+          "@type": "Person",
+          "@id": "https://danielselmeci.com/#person"
+        }
+      }
+    }
+    </script>
 </head>
 <body>
     <nav class="navbar glass">
         <div class="nav-content">
             <a href="index.html" class="logo">
-                <i class="fas fa-plane"></i>
-                Go TravelApp
+                <img src="apple-touch-icon.png" alt="" class="logo-mark" width="28" height="28">
+                Go: TravelApp
             </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
@@ -56,18 +132,19 @@ Translate all visible text in each file.
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Your Travel Companion,<br>All in One Place</h1>
-            <p>Organize your trips, track documents, manage expenses, and explore destinations with Go TravelApp - the ultimate travel planning companion.</p>
-            <div style="height: 2.2rem;"></div>
-            <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
-                Download on the App Store
-                <i class="fas fa-arrow-right"></i>
-            </a>
-            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Available Now</div>
+            <p class="hero-brand">Go: TravelApp</p>
+            <h1>Your Smart Travel Companion</h1>
+            <p>Plan trips, track passports and visas, check entry requirements, and keep destination essentials in one calm, organized place.</p>
+            <div class="hero-actions">
+                <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
+                    <i class="fab fa-apple"></i>
+                    Download on the App Store
+                </a>
+            </div>
         </div>
         <div class="hero-image">
             <div class="device-mockup">
-                <img src="https://raw.githubusercontent.com/danielselmeci/gotravelapp.github.io/bb79a8a00e4f88603ff2f1f4a08995105dc912e6/app-preview.png" alt="Go TravelApp Preview" class="app-preview">
+                <img src="app-preview.png" alt="Go: TravelApp on iPhone" class="app-preview" width="660" height="1434">
             </div>
         </div>
     </header>
@@ -75,27 +152,32 @@ Translate all visible text in each file.
     <section id="features" class="features">
         <div class="section-container">
             <h2>Designed for Travelers</h2>
-            <p class="section-subtitle">Everything you need in one place</p>
+            <p class="section-subtitle">Everything you need before you go</p>
             <div class="feature-grid">
                 <div class="feature-card glass">
                     <i class="fas fa-passport"></i>
-                    <h3>Document Management</h3>
-                    <p>Keep track of your passports, visas, and important travel documents with secure storage and expiration reminders.</p>
+                    <h3>Passport & Visa Tracker</h3>
+                    <p>Save passport details, manage multiple visas, and get notified before anything expires.</p>
                 </div>
                 <div class="feature-card glass">
                     <i class="fas fa-suitcase"></i>
-                    <h3>Trip Planning</h3>
-                    <p>Create detailed trip itineraries with agenda items, packing lists, and travel checklists for every adventure.</p>
+                    <h3>Trip Planner</h3>
+                    <p>Organize trips by destination, dates, and purpose—with cities, notes, and key travel details.</p>
                 </div>
                 <div class="feature-card glass">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Expense Tracking</h3>
-                    <p>Track your travel expenses, manage budgets, and keep your spending organized with detailed expense reports.</p>
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Visa Requirements</h3>
+                    <p>Automatically check whether you need a visa for your destination based on the passports you hold.</p>
                 </div>
                 <div class="feature-card glass">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Interactive Maps</h3>
-                    <p>Explore destinations with interactive maps, find nearby attractions, and plan your route with ease.</p>
+                    <i class="fas fa-list-check"></i>
+                    <h3>Pre-Trip Checklist</h3>
+                    <p>Stay ready with clear checklists so nothing important slips through before departure.</p>
+                </div>
+                <div class="feature-card glass">
+                    <i class="fas fa-gauge-high"></i>
+                    <h3>Travel Cockpit</h3>
+                    <p>See plug types, currency, language, time zone, and safety levels for supported destinations.</p>
                 </div>
             </div>
         </div>
@@ -103,8 +185,8 @@ Translate all visible text in each file.
 
     <section class="why-choose">
         <div class="section-container centered-section">
-            <h2>Why Choose Go TravelApp?</h2>
-            <p class="section-subtitle">Get started in three simple steps</p>
+            <h2>Why Choose Go: TravelApp?</h2>
+            <p class="section-subtitle">Built for calm, organized travel</p>
             <div class="feature-grid">
                 <div class="feature-card glass">
                     <i class="fas fa-lock"></i>
@@ -138,17 +220,17 @@ Translate all visible text in each file.
                 <div class="feature-card glass">
                     <i class="fas fa-download"></i>
                     <h3>1. Download & Install</h3>
-                    <p>Download Go TravelApp from the App Store and get started with your travel planning journey.</p>
+                    <p>Download Go: TravelApp from the App Store and start organizing your next trip.</p>
                 </div>
                 <div class="feature-card glass">
                     <i class="fas fa-user-plus"></i>
-                    <h3>2. Set Up Your Profile</h3>
-                    <p>Add your travel documents, set up your profile, and customize your preferences securely.</p>
+                    <h3>2. Add Your Documents</h3>
+                    <p>Save passports and visas, set up your profile, and customize preferences securely.</p>
                 </div>
                 <div class="feature-card glass">
                     <i class="fas fa-plane-departure"></i>
-                    <h3>3. Enjoy Stress-Free Travel</h3>
-                    <p>Plan trips, track documents, manage expenses, and receive smart reminders—all in one place, wherever you go.</p>
+                    <h3>3. Travel with Clarity</h3>
+                    <p>Plan trips, check requirements, complete checklists, and open your destination cockpit anytime.</p>
                 </div>
             </div>
         </div>
@@ -157,11 +239,11 @@ Translate all visible text in each file.
     <section id="about" class="about">
         <div class="section-container">
             <div class="about-content">
-                <h2>About Go TravelApp</h2>
+                <h2>About Go: TravelApp</h2>
                 <p class="section-subtitle">Made with passion in Rogers, AR</p>
                 <div class="about-text">
-                    <p>Go TravelApp was born from a simple idea: make travel planning easier and more organized. We understand the challenges of managing travel documents, planning trips, and staying on top of important deadlines.</p>
-                    <p>Our mission is to provide travelers with a comprehensive solution that simplifies their journey from planning to execution.</p>
+                    <p>Go: TravelApp was born from a simple idea: make travel planning easier and more organized. We understand the challenges of managing travel documents, planning trips, and staying on top of important deadlines.</p>
+                    <p>Our mission is to give travelers one clear place for the details that matter—from planning through departure.</p>
                 </div>
             </div>
         </div>
@@ -170,26 +252,25 @@ Translate all visible text in each file.
     <section class="cta-section">
         <div class="cta-content glass">
             <h2>Ready to Simplify Your Travel?</h2>
-            <p>Download Go TravelApp today and experience the ultimate travel planning companion with document management, expense tracking, and interactive maps.</p>
+            <p>Download Go: TravelApp today for passport & visa tracking, trip planning, visa checks, checklists, and destination essentials.</p>
             <a href="https://apps.apple.com/us/app/go-travelapp/id6747101413" class="cta-button">
                 <i class="fab fa-apple"></i>
                 Download on the App Store
             </a>
-            <div style="margin-top:1rem; color:#007AFF; font-weight:600; font-size:1.1rem;">Available Now</div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Go TravelApp</h4>
+                <h4>Go: TravelApp</h4>
                 <p>Made with ♥️ in Rogers, AR</p>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
                 <div class="social-links">
-                    <a href="https://instagram.com/go.travelapp"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:info@gotravelapp.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://instagram.com/go.travelapp" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:info@gotravelapp.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -200,7 +281,7 @@ Translate all visible text in each file.
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Go TravelApp. All rights reserved.</p>
+            <p>&copy; 2026 Go: TravelApp. All rights reserved.</p>
         </div>
     </footer>
 
