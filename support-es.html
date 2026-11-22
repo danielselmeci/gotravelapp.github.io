@@ -1,29 +1,67 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="no-js" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soporte - GoTravelApp</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Soporte - Go: TravelApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script>document.documentElement.classList.replace('no-js','js')</script>
 </head>
 <body>
-    <nav class="navbar glass">
-        <div class="nav-content">
-            <a href="index-es.html" class="logo">
-                <i class="fas fa-plane"></i>
-                GoTravelApp
-            </a>
-            <div class="nav-links">
-                <a href="index-es.html">Inicio</a>
-                <a href="support-es.html" class="active">Soporte</a>
-                <a href="https://apps.apple.com/app/gotravelapp" class="download-btn">Descargar</a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+<!--sprite--><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" transform="rotate(90 12 12)" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+<symbol id="i-plane-line" viewBox="0 0 24 24"><path transform="rotate(45 12 12)" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+<symbol id="i-passport" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 17h6"/></symbol>
+<symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+<symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4m8.71 3.88.7.71-2.82 2.82"/></symbol>
+<symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></symbol>
+<symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1zM21 12h1M18.5 4.5 18 5M2 12h1M12 2v1M4.93 4.93l.71.71"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 5.55a2 2 0 0 0 1.8 0l3.65-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.55 2.27a2 2 0 0 1-1.8 0l-4.2-2.1a2 2 0 0 0-1.8 0l-3.65 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9L8.1 3.45a2 2 0 0 1 1.8 0zM15 5.76v15M9 3.24v15"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></symbol>
+<symbol id="i-widget" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M11.53 2.3a.53.53 0 0 1 .95 0l2.31 4.68a2.12 2.12 0 0 0 1.6 1.16l5.16.76a.53.53 0 0 1 .3.9l-3.74 3.64a2.12 2.12 0 0 0-.61 1.88l.88 5.14a.53.53 0 0 1-.77.56l-4.62-2.43a2.12 2.12 0 0 0-1.97 0L6.4 21.01a.53.53 0 0 1-.77-.56l.88-5.14a2.12 2.12 0 0 0-.61-1.88L2.16 9.8a.53.53 0 0 1 .3-.91l5.16-.75a2.12 2.12 0 0 0 1.6-1.16z"/></symbol>
+<symbol id="i-log" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+<symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol>
+<symbol id="i-infinity" viewBox="0 0 24 24"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.1 8.79.73 1.06 1.6 2.25 2.74 2.21 1.1-.04 1.51-.71 2.84-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.08 2.65-2.15.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.3-.88-2.32-3.5zM14.2 6.15c.6-.73 1.01-1.75.9-2.76-.87.03-1.92.58-2.54 1.31-.56.64-1.05 1.67-.92 2.66.97.08 1.96-.49 2.56-1.21z"/></symbol>
+<symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="i-replay" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+</svg><!--/sprite-->
+    <header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index-es.html"><img src="apple-touch-icon.png" alt="" width="30" height="30">Go: TravelApp</a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="index-es.html#features">Funciones</a>
+      <a href="index-es.html#crew">Crew+</a>
+      <a href="index-es.html#pro">Pro</a>
+      <a href="support-es.html" aria-current="page">Soporte</a>
+      <a class="header-cta" href="https://apps.apple.com/us/app/go-travelapp/id6747101413">Descargar</a>
     </nav>
+    <details class="lang"><summary aria-label="Idioma"><svg class="icon"><use href="#i-globe"/></svg>ES</summary><ul><li><a href="support.html" hreflang="en" lang="en" data-lang="en">English <small>EN</small></a></li><li><a href="support-de.html" hreflang="de" lang="de" data-lang="de">Deutsch <small>DE</small></a></li><li><a href="support-es.html" hreflang="es" lang="es" data-lang="es" aria-current="true">Español <small>ES</small></a></li><li><a href="support-hu.html" hreflang="hu" lang="hu" data-lang="hu">Magyar <small>HU</small></a></li></ul></details>
+    <button class="menu-btn" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menú"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
 
     <main class="support-content">
         <h1>Ayuda y Soporte</h1>
@@ -50,7 +88,7 @@
                 <div class="faq-item">
                     <h3>¿Cómo funcionan las notificaciones?</h3>
                     <div class="faq-answer">
-                        <p>GoTravelApp envía notificaciones para:</p>
+                        <p>Go: TravelApp envía notificaciones para:</p>
                         <ul>
                             <li>Recordatorios de vencimiento de documentos (90 y 30 días antes)</li>
                             <li>Recordatorios de preparación de viaje (7 y 1 día antes)</li>
@@ -75,11 +113,11 @@
                 <div class="faq-item">
                     <h3>¿Cómo actualizo la app?</h3>
                     <div class="faq-answer">
-                        <p>Para actualizar GoTravelApp:</p>
+                        <p>Para actualizar Go: TravelApp:</p>
                         <ol>
                             <li>Abre la App Store en tu dispositivo</li>
                             <li>Toca tu foto de perfil</li>
-                            <li>Desplázate hasta encontrar GoTravelApp</li>
+                            <li>Desplázate hasta encontrar Go: TravelApp</li>
                             <li>Toca "Actualizar" si está disponible</li>
                         </ol>
                     </div>
@@ -136,54 +174,89 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>GoTravelApp</h4>
-                <p>Hecho con ♥️ en Rogers, AR</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <div class="social-links">
-                    <a href="https://instagram.com/go.travelapp"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:info@gotravelapp.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces</h4>
-                <a href="support-es.html">Soporte</a>
-                <a href="privacy-es.html">Política de privacidad</a>
-                <a href="terms-es.html">Términos de servicio</a>
-            </div>
+    <footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index-es.html"><img src="apple-touch-icon.png" alt="" width="30" height="30">Go: TravelApp</a>
+        <p>La app de viajes para viajeros y tripulaciones. Hecha en Rogers, Arkansas.</p>
+        <div class="socials">
+          <a href="https://instagram.com/go.travelapp" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a>
+          <a href="mailto:info@gotravelapp.com" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 GoTravelApp. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+      </div>
+      <div>
+        <h4>App</h4>
+        <ul>
+          <li><a href="index-es.html#features">Funciones</a></li>
+          <li><a href="index-es.html#crew">Crew+</a></li>
+          <li><a href="index-es.html#pro">Pro</a></li>
+          <li><a href="https://apps.apple.com/us/app/go-travelapp/id6747101413">Descargar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="support-es.html">Soporte</a></li>
+          <li><a href="crew-verification.html">Verificación de tripulación</a></li>
+          <li><a href="mailto:support@gotravelapp.com">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-es.html">Privacidad</a></li>
+          <li><a href="terms-es.html">Términos del servicio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Go: TravelApp. Todos los derechos reservados.</span>
+      <span>Una app de Polymath Sphere LLC.</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var header = document.querySelector('.site-header');
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('site-nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function () {
+      btn.setAttribute('aria-expanded', nav.classList.toggle('open'));
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  function onScroll() { if (header) header.classList.toggle('scrolled', window.scrollY > 8); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('details.lang[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); });
+    var pick = e.target.closest('.lang a[data-lang]');
+    if (pick) { try { localStorage.setItem('gotravelapp-lang', pick.dataset.lang); } catch (err) {} }
+  });
 
-        // FAQ accordion
-        document.querySelectorAll('.faq-item h3').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isOpen = answer.style.maxHeight;
-                
-                // Close all other answers
-                document.querySelectorAll('.faq-answer').forEach(item => {
-                    item.style.maxHeight = null;
-                });
-                
-                // Toggle current answer
-                if (!isOpen) {
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                }
-            });
-        });
-    </script>
+  document.querySelectorAll('.faq-item h3').forEach(function (q) {
+    q.tabIndex = 0;
+    q.setAttribute('role', 'button');
+    function toggle() { q.parentNode.classList.toggle('open'); }
+    q.addEventListener('click', toggle);
+    q.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
 </body>
 </html> 

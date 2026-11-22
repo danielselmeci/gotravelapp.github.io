@@ -1,0 +1,285 @@
+<!-- Interactive tour: the phone stays pinned while the steps scroll -->
+<section class="tour" id="features">
+  <div class="wrap tour-grid">
+    <div class="tour-intro section-head reveal">
+      <span class="eyebrow">{{tour_eyebrow}}</span>
+      <h2>{{tour_h2}}</h2>
+      <p class="lede">{{tour_sub}}</p>
+    </div>
+
+    <div class="tour-stage">
+      <div class="device" role="region" aria-label="{{tour_device}}">
+        <div class="device-screen">
+          <div class="app" id="app" data-screen="trips">
+            <div class="a-status" aria-hidden="true"><span>9:41</span><span class="bars"><i></i></span></div>
+            <div class="a-island" aria-hidden="true"></div>
+
+            <div class="a-notif" id="notif" aria-live="polite">
+              <img src="apple-touch-icon.png" alt="">
+              <div><b>Go: TravelApp <small>{{a_now}}</small></b>{{a_notif}}</div>
+            </div>
+
+            <!-- 1 Trips -->
+            <section class="scr on" data-name="trips">
+              <h1 class="a-large">{{a_your_trips}}</h1>
+              <button class="trip-card" data-go="flight">
+                <div class="tc-img" style="background-image:url(img/covers/portugal.jpg)"><b>Lisbon</b><span>{{a_day}} 3/4</span></div>
+                <div class="tc-body">
+                  <div class="tc-row"><span class="fl">TP 1243 <b class="a-gate" data-live="gate-small">14</b></span><span class="t-red" data-live="late-small">{{a_late25}}</span></div>
+                  <div class="tc-codes"><b>LIS</b><i><svg class="icon"><use href="#i-plane"/></svg></i><b>BUD</b></div>
+                  <div class="tc-times"><span><s>18:40</s><span class="t-red">19:05</span></span><span><s>23:55</s><span class="t-red">00:15</span></span></div>
+                </div>
+              </button>
+              <button class="trip-card" data-go="trip">
+                <div class="tc-img" style="background-image:url(img/covers/japan.jpg)"><b>Tokyo</b><span>{{a_in6}}</span></div>
+                <div class="tc-body">
+                  <div class="tc-row"><span class="fl">LH 716</span><span data-date="2026-11-27"></span></div>
+                  <div class="tc-codes"><b>FRA</b><i><svg class="icon"><use href="#i-plane"/></svg></i><b>HND</b></div>
+                  <div class="tc-times"><span class="t-green">17:55</span><span class="t-green">14:55</span></div>
+                </div>
+              </button>
+              <button class="trip-card" data-go="visa">
+                <div class="tc-img" style="background-image:url(img/covers/united_states.jpg)"><b>New York</b><span>{{a_in24}}</span></div>
+                <div class="tc-body">
+                  <div class="tc-row"><span class="fl">AA 899 <b class="a-gate">B12</b></span><span data-date="2026-12-15"></span></div>
+                  <div class="tc-codes"><b>XNA</b><i><svg class="icon"><use href="#i-plane"/></svg></i><b>LGA</b></div>
+                  <div class="tc-times"><span class="t-green">16:36</span><span class="t-green">20:42</span></div>
+                </div>
+              </button>
+            </section>
+
+            <!-- 2 Trip briefing -->
+            <section class="scr" data-name="trip" data-dark-top>
+              <div class="trip-hero" style="background-image:url(img/covers/japan.jpg)">
+                <button class="a-back" data-go="trips" aria-label="{{a_back}}"><svg class="icon"><use href="#i-chev"/></svg></button>
+                <div class="where"><small data-region="JP"></small><h2>Tokyo</h2><div class="dates" data-range="2026-11-27/2026-12-07"></div></div>
+                <div class="count"><b>6</b><span>{{a_days_to_go}}</span></div>
+              </div>
+              <div class="tiles">
+                <button class="tile" data-go="visa"><svg class="icon"><use href="#i-badge"/></svg><span>{{a_visa}}</span><b class="t-green">{{a_free}}</b></button>
+                <button class="tile" data-go="visa"><svg class="icon"><use href="#i-passport"/></svg><span>{{a_passport}}</span><b class="t-green">{{a_valid}}</b></button>
+                <button class="tile" data-go="checklist"><svg class="icon"><use href="#i-list"/></svg><span>{{a_todo}}</span><b data-live="todo">3/8</b></button>
+                <button class="tile" data-go="ground"><svg class="icon"><use href="#i-sun"/></svg><span>{{a_weather}}</span><b>{{a_temp}}</b></button>
+              </div>
+              <button class="a-card" data-go="flight">
+                <div class="a-label">{{a_flights}}</div>
+                <div class="a-label" style="margin-bottom:6px"><span>{{a_outbound}} · <span data-date="2026-11-27"></span></span><span class="a-pill">{{a_scheduled}}</span></div>
+                <div class="fl-big">
+                  <div><small>Frankfurt</small><b>FRA</b><em>17:55</em></div>
+                  <svg class="icon"><use href="#i-plane"/></svg>
+                  <div class="r"><small>Tokyo</small><b>HND</b><em>14:55</em></div>
+                </div>
+                <div class="fl-meta"><span>LH 716</span><span>{{a_gate}} —</span><span>13h 0m</span></div>
+              </button>
+              <button class="a-card" data-go="checklist">
+                <div class="a-label"><span>{{a_before}}</span><span class="a-pill" data-live="left">5 {{a_left}}</span></div>
+                <ul class="mini-check" data-live="mini"></ul>
+                <span class="a-link">{{a_full_list}} <svg class="icon" style="width:14px;height:14px"><use href="#i-arrow"/></svg></span>
+              </button>
+            </section>
+
+            <!-- 3 Live flight -->
+            <section class="scr" data-name="flight">
+              <div class="a-head">
+                <button class="a-back" data-go="trips" aria-label="{{a_back}}"><svg class="icon"><use href="#i-chev"/></svg></button>
+                <h2>TP 1243<small>Lisbon → Budapest · {{a_today}}</small></h2>
+              </div>
+              <div class="fl-status" id="flStatus"><i></i><span data-on="{{a_ontime}}" data-late="{{a_delayed25}}">{{a_ontime}}</span></div>
+              <div class="a-card">
+                <div class="fl-big">
+                  <div><small>Lisbon</small><b>LIS</b></div>
+                  <svg class="icon"><use href="#i-plane"/></svg>
+                  <div class="r"><small>Budapest</small><b>BUD</b></div>
+                </div>
+                <div class="fl-grid">
+                  <div><span>{{a_terminal}}</span><b>1</b></div>
+                  <div id="flGate"><span>{{a_gate}}</span><b>—</b></div>
+                  <div id="flDep"><span>{{a_departs}}</span><b>18:40</b></div>
+                  <div id="flArr"><span>{{a_arrives}}</span><b>23:55</b></div>
+                </div>
+              </div>
+              <div class="a-card">
+                <div class="a-label">{{a_updates}}</div>
+                <ul class="events" id="flEvents"><li><time>15:02</time><span>{{a_ev_checkin}}</span></li></ul>
+              </div>
+              <div class="a-card" style="background:none;box-shadow:none;padding:0 0 4px">
+                <div class="a-label" style="padding:0 4px">{{a_widget}}</div>
+                <div class="widget-demo"><small>TP 1243 · LIS → BUD</small><b data-live="w-time">18:40</b><span class="a-gate" data-live="w-gate" style="visibility:hidden">14</span><span data-live="w-status">{{a_ontime}}</span></div>
+              </div>
+              <template id="flEv"><i data-k="gate">{{a_ev_gate}}</i><i data-k="delay">{{a_ev_delay}}</i></template>
+              <button class="a-replay" id="flReplay"><svg class="icon"><use href="#i-replay"/></svg>{{a_replay}}</button>
+            </section>
+
+            <!-- 4 Documents and visa check -->
+            <section class="scr" data-name="visa">
+              <div class="a-head">
+                <button class="a-back" data-go="trip" aria-label="{{a_back}}"><svg class="icon"><use href="#i-chev"/></svg></button>
+                <h2>{{a_documents}}</h2>
+              </div>
+              <div class="passport" id="pp" data-p="HU">
+                <div><small>{{a_passport_up}}</small><h3 data-pp-name></h3></div>
+                <span class="flag" data-pp-flag>🇭🇺</span>
+                <div class="pp-foot"><span data-pp-num>•••• 4821</span><span>{{a_valid_until}} <span data-pp-exp>03/2031</span></span></div>
+              </div>
+              <div class="chips" role="radiogroup" aria-label="{{a_your_passports}}">
+                <button class="chip on" data-pp="HU" role="radio" aria-checked="true">🇭🇺 <span data-region="HU"></span></button>
+                <button class="chip" data-pp="US" role="radio" aria-checked="false">🇺🇸 <span data-region="US"></span></button>
+                <button class="chip" data-pp="BR" role="radio" aria-checked="false">🇧🇷 <span data-region="BR"></span></button>
+              </div>
+              <div class="a-card">
+                <div class="a-label">{{a_where_go}}</div>
+                <ul class="dest" id="dest">
+                  <li data-d="JP"><span>🇯🇵 <span data-region="JP"></span></span><b class="vs"></b></li>
+                  <li data-d="GB"><span>🇬🇧 <span data-region="GB"></span></span><b class="vs"></b></li>
+                  <li data-d="AU"><span>🇦🇺 <span data-region="AU"></span></span><b class="vs"></b></li>
+                  <li data-d="IN"><span>🇮🇳 <span data-region="IN"></span></span><b class="vs"></b></li>
+                </ul>
+              </div>
+              <p class="a-note">{{a_demo_note}}</p>
+              <template id="vsLabels"><i data-k="free">{{a_vf90}}</i><i data-k="eta">{{a_eta}}</i><i data-k="evisitor">{{a_evisitor}}</i><i data-k="evisa">{{a_evisa}}</i><i data-k="req">{{a_visa_req}}</i></template>
+            </section>
+
+            <!-- 5 Checklist -->
+            <section class="scr" data-name="checklist">
+              <div class="a-head">
+                <button class="a-back" data-go="trip" aria-label="{{a_back}}"><svg class="icon"><use href="#i-chev"/></svg></button>
+                <h2>{{a_before}}<small>Tokyo · <span data-live="count">3</span>/8 {{a_done}}</small></h2>
+              </div>
+              <div style="padding:0 18px 14px"><div class="progress"><i data-live="bar"></i></div></div>
+              <div class="ready" id="ready"><svg class="icon"><use href="#i-plane"/></svg>{{a_ready}}</div>
+              <div class="a-card check-group">
+                <div class="a-label">{{a_g_docs}}</div>
+                <button class="check-item done"><span class="box"></span><span class="txt">{{a_c_passport}}</span></button>
+                <button class="check-item done"><span class="box"></span><span class="txt">{{a_c_expiry}}</span></button>
+                <button class="check-item done"><span class="box"></span><span><span class="txt">{{a_c_visa}}</span><small>{{a_c_visa_auto}}</small></span></button>
+              </div>
+              <div class="a-card check-group">
+                <div class="a-label">{{a_g_health}}</div>
+                <button class="check-item"><span class="box"></span><span class="txt">{{a_c_vacc}}</span></button>
+                <button class="check-item"><span class="box"></span><span class="txt">{{a_c_health}}</span></button>
+              </div>
+              <div class="a-card check-group">
+                <div class="a-label">{{a_g_money}}</div>
+                <button class="check-item"><span class="box"></span><span class="txt">{{a_c_bank}}</span></button>
+                <button class="check-item"><span class="box"></span><span class="txt">{{a_c_yen}}</span></button>
+                <button class="check-item"><span class="box"></span><span><span class="txt">{{a_c_adapter}}</span><small>{{a_c_adapter_note}}</small></span></button>
+              </div>
+            </section>
+
+            <!-- 6 On the ground -->
+            <section class="scr" data-name="ground">
+              <div class="a-head">
+                <button class="a-back" data-go="trip" aria-label="{{a_back}}"><svg class="icon"><use href="#i-chev"/></svg></button>
+                <h2>{{a_on_ground}}<small>Tokyo, <span data-region="JP"></span></small></h2>
+              </div>
+              <div class="g-grid">
+                <div class="a-card"><div class="a-label">{{a_local_time}}</div><div class="g-big" id="tokyoTime">--:--</div><div class="g-sub" id="tokyoDiff" data-tpl="{{a_from_you}}"></div></div>
+                <div class="a-card"><div class="a-label">{{a_weather}}</div><div class="g-big">{{a_temp}}</div><div class="g-sub">{{a_weather_desc}}</div></div>
+                <div class="a-card"><div class="a-label">{{a_plugs}}</div><div class="g-big">A · B</div><div class="g-sub">100 V · 50/60 Hz</div></div>
+                <div class="a-card"><div class="a-label">{{a_advisory}}</div><div class="g-big t-green">{{a_level1}}</div><div class="g-sub">{{a_level1_desc}}</div></div>
+              </div>
+              <div class="a-card">
+                <div class="a-label">{{a_currency}} · JPY</div>
+                <div class="conv">
+                  <input id="convIn" type="text" inputmode="decimal" value="50" aria-label="{{a_amount}}">
+                  <select id="convCur" aria-label="{{a_currency}}"><option value="155">USD</option><option value="168">EUR</option><option value="196">GBP</option><option value="0.42">HUF</option></select>
+                  <div class="conv-out" id="convOut">¥7,750</div>
+                </div>
+                <p class="a-note" style="padding:6px 0 0">{{a_sample_rate}}</p>
+              </div>
+              <div class="a-card">
+                <div class="a-label">{{a_phrases}}</div>
+                <button class="phrase" data-say="Arigatō gozaimasu"><span>{{a_p_thanks}}</span><em>{{a_tap_hear}}</em></button>
+                <button class="phrase" data-say="Sumimasen"><span>{{a_p_excuse}}</span><em>{{a_tap_hear}}</em></button>
+                <button class="phrase" data-say="Eki wa doko desu ka?"><span>{{a_p_station}}</span><em>{{a_tap_hear}}</em></button>
+              </div>
+              <div class="a-card"><div class="a-label">{{a_emergency}}</div><div class="tc-row" style="font-size:16px;color:inherit"><span>{{a_police}} <b>110</b></span><span>{{a_ambulance}} <b>119</b></span></div></div>
+            </section>
+
+            <!-- 7 Crew+ Layover Lounge -->
+            <section class="scr" data-name="crew" data-dark-top>
+              <div class="lounge-head">
+                <button class="a-back" data-go="trips" aria-label="{{a_back}}"><svg class="icon"><use href="#i-chev"/></svg></button>
+                <div><h2>Layover Lounge · LHR</h2><small><svg class="icon"><use href="#i-shield"/></svg>{{a_lounge_sub}}</small></div>
+              </div>
+              <div class="chat" id="chat">
+                <div class="sys">{{a_sys}}</div>
+                <div class="msg" hidden><small>Marta · {{a_purser}} <svg class="icon"><use href="#i-shield"/></svg></small><p>{{a_m1}}</p></div>
+                <div class="msg" hidden><small>James · {{a_fo}} <svg class="icon"><use href="#i-shield"/></svg></small><p>{{a_m2}}</p></div>
+                <div class="msg" hidden><small>Kenji · {{a_cc}} <svg class="icon"><use href="#i-shield"/></svg></small><p>{{a_m3}}</p></div>
+                <div class="typing" hidden><i></i><i></i><i></i></div>
+              </div>
+              <div class="quick" id="quick">
+                <button data-reply="{{a_r1}}">{{a_q1}}</button>
+                <button data-reply="{{a_r2}}">{{a_q2}}</button>
+                <button data-reply="{{a_r3}}">{{a_q3}}</button>
+              </div>
+            </section>
+
+            <nav class="a-tabs" aria-label="{{a_tabs}}">
+              <button data-go="trips" data-tab="trips" class="on"><svg class="icon"><use href="#i-plane"/></svg>{{a_tab_trips}}</button>
+              <button data-go="ground" data-tab="ground"><svg class="icon"><use href="#i-compass"/></svg>{{a_tab_explore}}</button>
+              <button data-go="crew" data-tab="crew"><svg class="icon"><use href="#i-users"/></svg>Crew+</button>
+              <button data-go="visa" data-tab="visa"><svg class="icon"><use href="#i-passport"/></svg>{{a_tab_docs}}</button>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="tour-hint"><span>{{tour_hint}}</span><span class="tour-dots" id="tourDots"></span></div>
+    </div>
+
+    <div class="tour-steps">
+      <article class="step" data-screen="trips">
+        <span class="step-num">01</span><h3>{{s1_h}}</h3><p>{{s1_p}}</p>
+        <span class="step-try"><i></i>{{s1_try}}</span>
+      </article>
+      <article class="step" data-screen="trip">
+        <span class="step-num">02</span><h3>{{s2_h}}</h3><p>{{s2_p}}</p>
+        <span class="step-try"><i></i>{{s2_try}}</span>
+      </article>
+      <article class="step" data-screen="flight">
+        <span class="step-num">03</span><h3>{{s3_h}}</h3><p>{{s3_p}}</p>
+        <span class="step-try"><i></i>{{s3_try}}</span>
+      </article>
+      <article class="step" data-screen="visa">
+        <span class="step-num">04</span><h3>{{s4_h}}</h3><p>{{s4_p}}</p>
+        <span class="step-try"><i></i>{{s4_try}}</span>
+      </article>
+      <article class="step" data-screen="checklist">
+        <span class="step-num">05</span><h3>{{s5_h}}</h3><p>{{s5_p}}</p>
+        <span class="step-try"><i></i>{{s5_try}}</span>
+      </article>
+      <article class="step" data-screen="ground">
+        <span class="step-num">06</span><h3>{{s6_h}}</h3><p>{{s6_p}}</p>
+        <span class="step-try"><i></i>{{s6_try}}</span>
+      </article>
+      <article class="step" data-screen="crew">
+        <span class="step-num">07</span><h3>{{s7_h}}</h3><p>{{s7_p}}</p>
+        <a class="step-link" href="#crew">{{s7_link}} <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Everything else in the toolkit -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <article class="card span-6 card-toolkit reveal">
+      <div>
+        <h3>{{f_tools_h}}</h3>
+        <p>{{f_tools_p}}</p>
+      </div>
+      <ul class="toolkit">
+        <li><svg class="icon"><use href="#i-wallet"/></svg>{{f_exp_h}}</li>
+        <li><svg class="icon"><use href="#i-coins"/></svg>{{t_currency}}</li>
+        <li><svg class="icon"><use href="#i-scan"/></svg>{{t_price}}</li>
+        <li><svg class="icon"><use href="#i-building"/></svg>{{t_embassy}}</li>
+        <li><svg class="icon"><use href="#i-siren"/></svg>{{t_sos}}</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>{{t_nearby}}</li>
+        <li><svg class="icon"><use href="#i-map"/></svg>{{t_map}}</li>
+        <li><svg class="icon"><use href="#i-sparkles"/></svg>{{t_ai}}</li>
+        <li><svg class="icon"><use href="#i-widget"/></svg>{{t_widget}}</li>
+      </ul>
+    </article>
+  </div>
+</section>
