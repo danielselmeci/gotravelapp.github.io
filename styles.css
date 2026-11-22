@@ -339,23 +339,17 @@ h3 { font-size: 20px; letter-spacing: -0.015em; line-height: 1.25; font-weight: 
 @media (max-width: 960px) { .crew-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .crew-grid { grid-template-columns: 1fr; } }
 
-/* ---------- Pro + Privacy ---------- */
-.duo { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; }
-.pro-card { background: linear-gradient(140deg, var(--brand) 0%, #6B4FE0 100%); color: #fff; border: 0; padding: clamp(28px, 4vw, 48px); gap: 16px; }
-.pro-card h2 { font-size: clamp(30px, 3.6vw, 44px); }
-.pro-card p { color: rgba(255,255,255,.86); font-size: 17px; max-width: 46ch; }
-.pro-card .eyebrow { color: #fff; opacity: .85; }
-.pro-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; margin-top: 12px; }
-.pro-list li { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; }
-.pro-list .icon { width: 20px; height: 20px; margin-top: 3px; color: var(--gate); }
+/* ---------- Privacy ---------- */
 .privacy-card { padding: clamp(28px, 4vw, 48px); gap: 16px; }
 .privacy-card h2 { font-size: clamp(28px, 3vw, 38px); }
 .privacy-card .card-icon { background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); }
 .privacy-card ul { list-style: none; display: grid; gap: 10px; color: var(--ink-2); }
 .privacy-card li { display: flex; gap: 10px; }
 .privacy-card li .icon { width: 18px; height: 18px; margin-top: 4px; color: var(--ok); }
-@media (max-width: 900px) { .duo { grid-template-columns: 1fr; } }
-@media (max-width: 520px) { .pro-list { grid-template-columns: 1fr; } }
+.privacy-wide { grid-template-columns: 1fr 1fr; align-items: center; gap: 24px 56px; }
+.privacy-wide > div { display: grid; gap: 16px; justify-items: start; }
+.privacy-wide ul { font-size: 17px; gap: 14px; }
+@media (max-width: 800px) { .privacy-wide { grid-template-columns: 1fr; } }
 
 /* ---------- Final CTA ---------- */
 .final { text-align: center; }

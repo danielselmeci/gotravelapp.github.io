@@ -102,7 +102,6 @@ def header(lang, base):
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <a href="{h}#features">{t(lang, "nav_features")}</a>
       <a href="{h}#crew">{t(lang, "nav_crew")}</a>
-      <a href="{h}#pro">{t(lang, "nav_pro")}</a>
       <a href="{support}"{cur}>{t(lang, "nav_support")}</a>
       <a class="header-cta" href="{STORE}">{t(lang, "nav_cta")}</a>
     </nav>
@@ -130,7 +129,6 @@ def footer(lang):
         <ul>
           <li><a href="{home}#features">{t(lang, "nav_features")}</a></li>
           <li><a href="{home}#crew">Crew+</a></li>
-          <li><a href="{home}#pro">Pro</a></li>
           <li><a href="{STORE}">{t(lang, "foot_download")}</a></li>
         </ul>
       </div>
