@@ -41,7 +41,7 @@ STRINGS = {
   "f_tools_h": "A full travel toolkit",
   "f_tools_p": "The small things that save a trip, one tap away.",
   "t_currency": "Currency converter", "t_price": "Price scanner", "t_phrases": "Local phrases", "t_embassy": "Embassies",
-  "t_sos": "Emergency numbers and SOS", "t_nearby": "Nearby places", "t_map": "Your travel map", "t_ai": "AI travel assistant", "t_widget": "Home screen widget",
+  "t_sos": "Emergency numbers and SOS", "t_nearby": "Nearby places", "t_map": "Your travel map", "t_widget": "Home screen widget",
 
   "show_eyebrow": "Trip briefing",
   "show_h2": "Open a trip. It's all there.",
@@ -114,7 +114,7 @@ STRINGS = {
   "f_tools_h": "Ein komplettes Reise-Toolkit",
   "f_tools_p": "Die kleinen Dinge, die eine Reise retten, nur einen Tipp entfernt.",
   "t_currency": "Währungsrechner", "t_price": "Preisscanner", "t_phrases": "Lokale Redewendungen", "t_embassy": "Botschaften",
-  "t_sos": "Notrufnummern und SOS", "t_nearby": "Orte in der Nähe", "t_map": "Deine Reisekarte", "t_ai": "KI-Reiseassistent", "t_widget": "Home-Bildschirm-Widget",
+  "t_sos": "Notrufnummern und SOS", "t_nearby": "Orte in der Nähe", "t_map": "Deine Reisekarte", "t_widget": "Home-Bildschirm-Widget",
 
   "show_eyebrow": "Reise-Briefing",
   "show_h2": "Reise öffnen. Alles ist da.",
@@ -187,7 +187,7 @@ STRINGS = {
   "f_tools_h": "Un kit de viaje completo",
   "f_tools_p": "Las pequeñas cosas que salvan un viaje, a un toque.",
   "t_currency": "Conversor de divisas", "t_price": "Escáner de precios", "t_phrases": "Frases locales", "t_embassy": "Embajadas",
-  "t_sos": "Números de emergencia y SOS", "t_nearby": "Lugares cercanos", "t_map": "Tu mapa de viajes", "t_ai": "Asistente de viaje con IA", "t_widget": "Widget de inicio",
+  "t_sos": "Números de emergencia y SOS", "t_nearby": "Lugares cercanos", "t_map": "Tu mapa de viajes", "t_widget": "Widget de inicio",
 
   "show_eyebrow": "Resumen del viaje",
   "show_h2": "Abre un viaje. Todo está ahí.",
@@ -260,7 +260,7 @@ STRINGS = {
   "f_tools_h": "Teljes utazási eszköztár",
   "f_tools_p": "Az apróságok, amelyek megmentenek egy utat, egy koppintásra.",
   "t_currency": "Valutaváltó", "t_price": "Árszkenner", "t_phrases": "Helyi kifejezések", "t_embassy": "Nagykövetségek",
-  "t_sos": "Segélyhívó számok és SOS", "t_nearby": "Közeli helyek", "t_map": "Utazási térképed", "t_ai": "MI utazási asszisztens", "t_widget": "Kezdőképernyő-widget",
+  "t_sos": "Segélyhívó számok és SOS", "t_nearby": "Közeli helyek", "t_map": "Utazási térképed", "t_widget": "Kezdőképernyő-widget",
 
   "show_eyebrow": "Úti tájékoztató",
   "show_h2": "Nyisd meg az utat. Minden ott van.",
