@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{meta_title}}</title>
+<meta name="description" content="{{meta_desc}}">
+<meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070B18" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="{{canonical}}">
+{{hreflangs}}
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-itunes-app" content="app-id=6747101413">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Go: TravelApp">
+<meta property="og:locale" content="{{og_locale}}">
+<meta property="og:title" content="{{meta_title}}">
+<meta property="og:description" content="{{og_desc}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="https://gotravelapp.com/og-image.jpg">
+<meta property="og:image:width" content="630">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{meta_title}}">
+<meta name="twitter:description" content="{{og_desc}}">
+<meta name="twitter:image" content="https://gotravelapp.com/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+{{jsonld}}
+</head>
+<body>
+{{sprite}}
+<a class="skip" href="#main">{{skip}}</a>
+
+{{header}}
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">{{hero_eyebrow}}</span>
+      <h1>{{hero_h1}}</h1>
+      <p class="lede">{{hero_sub}}</p>
+      <div class="hero-actions">
+        {{store_button}}
+        <a class="btn btn-ghost" href="#crew">{{hero_crew_link}} <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="hero-note">{{hero_note}}</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="phone"><img src="img/trips-B.jpg" alt="" width="640" height="1391" fetchpriority="high"></div>
+      <div class="status-chip"><i></i>TP 1243 <small>{{chip_late}}</small></div>
+      <div class="pass">
+        <div class="pass-top"><span>{{pass_label}}</span><b>LH 716</b></div>
+        <div class="pass-route">
+          <div><span class="code">FRA</span><small>FRANKFURT · 17:55</small></div>
+          <div class="path"><svg class="icon"><use href="#i-plane"/></svg></div>
+          <div class="to"><span class="code">HND</span><small>TOKYO · 14:55</small></div>
+        </div>
+        <div class="pass-tear"></div>
+        <div class="pass-meta">
+          <span>{{pass_gate}}<b class="gate-chip">B12</b></span>
+          <span>{{pass_boards}}<b>17:15</b></span>
+          <span>{{pass_seat}}<b>34K</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Departure board ticker -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    {{ticker}}
+    {{ticker}}
+  </div>
+</div>
+
+{{tour}}
+
+<!-- Crew+ -->
+<section class="section crew" id="crew">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Crew+</span>
+      <h2>{{crew_h2}}</h2>
+      <p class="lede">{{crew_sub}}</p>
+      <span class="crew-badge"><svg class="icon"><use href="#i-shield"/></svg>{{crew_badge}}</span>
+    </div>
+    <div class="crew-grid reveal">
+      <article class="crew-item">
+        <span class="num">01</span>
+        <svg class="icon"><use href="#i-chat"/></svg>
+        <h3>{{c_lounge_h}}</h3>
+        <p>{{c_lounge_p}}</p>
+      </article>
+      <article class="crew-item">
+        <span class="num">02</span>
+        <svg class="icon"><use href="#i-bed"/></svg>
+        <h3>{{c_hotel_h}}</h3>
+        <p>{{c_hotel_p}}</p>
+      </article>
+      <article class="crew-item">
+        <span class="num">03</span>
+        <svg class="icon"><use href="#i-star"/></svg>
+        <h3>{{c_recs_h}}</h3>
+        <p>{{c_recs_p}}</p>
+      </article>
+      <article class="crew-item">
+        <span class="num">04</span>
+        <svg class="icon"><use href="#i-log"/></svg>
+        <h3>{{c_log_h}}</h3>
+        <p>{{c_log_p}}</p>
+      </article>
+    </div>
+    <div class="crew-foot reveal">
+      <span>{{crew_foot}}</span>
+      <a href="crew-verification.html">{{crew_link}} <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- Pro + privacy -->
+<section class="section" id="pro">
+  <div class="wrap duo">
+    <article class="card pro-card reveal">
+      <span class="eyebrow">Go: TravelApp Pro</span>
+      <h2>{{pro_h2}}</h2>
+      <p>{{pro_sub}}</p>
+      <ul class="pro-list">
+        <li><svg class="icon"><use href="#i-sparkles"/></svg>{{pro_1}}</li>
+        <li><svg class="icon"><use href="#i-compass"/></svg>{{pro_2}}</li>
+        <li><svg class="icon"><use href="#i-tools"/></svg>{{pro_3}}</li>
+        <li><svg class="icon"><use href="#i-infinity"/></svg>{{pro_4}}</li>
+      </ul>
+    </article>
+    <article class="card privacy-card reveal">
+      <div class="card-icon"><svg class="icon"><use href="#i-lock"/></svg></div>
+      <h2>{{priv_h2}}</h2>
+      <ul>
+        <li><svg class="icon"><use href="#i-check"/></svg>{{priv_1}}</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>{{priv_2}}</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>{{priv_3}}</li>
+      </ul>
+      <a href="{{privacy_href}}">{{priv_link}}</a>
+    </article>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="section final">
+  <div class="wrap reveal">
+    <img class="app-icon" src="apple-touch-icon.png" alt="" width="88" height="88" loading="lazy">
+    <h2>{{final_h2}}</h2>
+    <p class="lede">{{final_sub}}</p>
+    {{store_button}}
+  </div>
+</section>
+
+</main>
+
+{{footer}}
+
+{{script}}
+<script src="tour.js" defer></script>
+</body>
+</html>
